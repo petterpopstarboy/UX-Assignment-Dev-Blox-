@@ -3,10 +3,10 @@ Project assignment done by Zheng Bo and Kai Ze
 
 Zheng Bo:
 Guide Page.html
-COmmunity.html
-Feedback.html
+Community.html
 
 Kai Ze:
-Index.html (AKA Homepage)
+Homepage.html
 News.html
-Profile System
+Profile System (Log in / Sign up / Profile)
+Feedback.html
