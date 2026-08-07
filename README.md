@@ -2,11 +2,11 @@
 Project assignment done by Zheng Bo and Kai Ze
 
 Zheng Bo:
-Guide Page.html
-Community.html
+Guide Page
+Community
 
 Kai Ze:
-Homepage.html
-News.html
+Homepage
+News
 Profile System (Log in / Sign up / Profile)
-Feedback.html
+Contact Us
