@@ -1,0 +1,359 @@
+/* ==========================================================================
+   SHARED — used across all pages
+   ========================================================================== */
+body {
+  min-height: 100vh;
+  background: #f4f6f9;
+}
+/* Login / Sign up / Profile use this instead of the flat background above */
+body.auth-page {
+  background-image: url("Images/Roblox login background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nav-btn {
+  background-color: transparent !important;
+  color: black !important;
+  border: none !important;
+}
+.nav-btn:hover {
+  text-decoration: underline; /* subtle hover effect */
+}
+.bg-navy {
+  background-color: #0B1E3D;
+}
+.banner-title {
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0 0 0.35rem;
+}
+h1, h2, h3, .section-title, .banner-title {
+  font-family: system-ui, sans-serif;
+}
+
+
+/* ==========================================================================
+   HOMEPAGE
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Hero --- */
+.hero {
+  background-image: linear-gradient(rgba(11, 30, 61, 0.65), rgba(11, 30, 61, 0.65)), url("Images/Roblox hero background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+.hero h1, .hero h2, .card-title, .section-title {
+  font-family: 'Sora', system-ui, sans-serif;
+}
+.hero-eyebrow {
+  color: #EAB600;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+.hero h1 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0.75rem 0 1rem;
+}
+.hero p {
+  color: #C7D2E3;
+  max-width: 42rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.hero-cta {
+  background-color: #EAB600;
+  color: #0B1E3D;
+  font-weight: 750;
+  padding: 0.7rem 1.6rem;
+}
+.hero-cta:hover {
+  background-color: #fbe69a;
+  color: #0B1E3D;
+}
+
+/* --- Info sections (What We Do / Value & Benefits / About Us) --- */
+.info-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 85vh;
+  padding: 5rem 1rem;
+}
+.info-section h2 {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+.info-section p {
+  font-size: 1.15rem;
+  color: #C7D2E3;
+  max-width: 42rem;
+}
+.info-eyebrow {
+  color: #EAB600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.benefit-list {
+  margin: 1.5rem 0 0;
+}
+.benefit-list li {
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.benefit-list svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.info-container {
+  padding-left: 1.5rem !important;
+}
+@media (min-width: 768px) {
+  .info-container {
+    padding-left: 4rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .info-container {
+    padding-left: 8rem !important;
+  }
+}
+
+/* --- Page explainer cards --- */
+.section-explainers {
+  padding: 3.5rem 1rem;
+}
+.section-title {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+.section-subtitle {
+  color: #6c757d;
+  margin-bottom: 2.2rem;
+}
+.explainer-card {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem 1.6rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.explainer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(13, 30, 61, 0.08);
+}
+.explainer-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-bottom: 1.1rem;
+  overflow: hidden;
+}
+.explainer-icon img {
+  object-fit: cover;
+}
+.explainer-card p {
+  color: #5a6472;
+  min-height: 4.5rem;
+}
+
+
+/* ==========================================================================
+   LOGIN / SIGN UP / PROFILE (auth pages)
+   ========================================================================== */
+.card {
+  max-width: 400px;
+}
+.avatar-lg {
+  width: 80px;
+  height: 80px;
+}
+
+
+/* ==========================================================================
+   CONTACT US
+   ========================================================================== */
+.text-amber {
+  color: #FFC145;
+}
+.text-pale {
+  color: #C7D2E3;
+}
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   NEWS LETTER
+   ========================================================================== */
+.page-banner {
+  background: #0B1E3D;
+  color: white;
+  padding: 2.5rem 1rem;
+}
+.page-banner p {
+  color: #C7D2E3;
+  margin: 0;
+}
+
+/* --- Shop & Events carousel --- */
+.events-wrap {
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+.event-card {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.event-icon {
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.event-icon img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .event-icon {
+    width: 120px;
+    height: 120px;
+  }
+  .event-icon img {
+    width: 90px;
+    height: 90px;
+  }
+}
+.event-card p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  max-width: 40rem;
+}
+.event-card .btn-outline-primary {
+  color: white;
+  border-color: white;
+}
+.event-card .btn-outline-primary:hover {
+  background: white;
+  color: #0B1E3D;
+}
+#eventsCarousel .carousel-control-prev,
+#eventsCarousel .carousel-control-next {
+  width: 3rem;
+  opacity: 1;
+}
+#eventsCarousel .carousel-control-prev-icon,
+#eventsCarousel .carousel-control-next-icon {
+  filter: none;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+/* --- Feed section --- */
+.feed-section {
+  padding: 3rem 1rem 3.5rem;
+}
+.feed-panel {
+  width: 100%;
+}
+.search-box {
+  max-width: 420px;
+}
+.news-item {
+  background: white;
+  border: 3px solid #137dff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  min-height: 220px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.news-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 35px rgba(2, 4, 7, 0.1);
+}
+.news-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.news-icon.cat-studio,
+.news-icon.cat-platform,
+.news-icon.cat-engine {
+  background: #E7F0FF;
+}
+.news-icon img {
+  width: 110px;
+  height: 110px;
+  border-radius: 15%;
+  object-fit: contain;
+}
+.news-body {
+  flex: 1;
+  min-width: 0;
+}
+.news-item h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+.news-item p {
+  color: #5a6472;
+  font-size: 1.02rem;
+  margin-bottom: 1rem;
+}
+.coming-soon {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  text-align: center;
+  padding-top: 2%;
+}
+@media (max-width: 576px) {
+  .news-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+  .news-icon {
+    width: 100%;
+    height: 140px;
+  }
+}
