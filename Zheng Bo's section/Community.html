@@ -1,0 +1,2218 @@
+<!-- Credits -->
+<!-- Made by Zheng Bo -->
+<!-- Linked by Kai Ze and Zheng Bo -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dev Bloxs - Community</title>
+
+        <!-- Import Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="blox-devs-doc" style="margin:0; padding:0; border: solid 0px black;">
+        <!-- Top Bar -->
+        <header class="sticky-top">
+            <div class="container-fluid py-2 d-flex justify-content-between align-items-center border-bottom border-primary" style="background-color: white;">
+                <div class="d-flex align-items-center">
+                    <a href="Homepage.html" class="text-decoration-none">
+                        <h2 class="text-primary m-0 me-4">Dev Blox</h2>
+                    </a>
+
+                    <!-- PC Nav buttons, only visible in wider displays ("d-md class determines its range of visibility") -->
+                    <div class="d-none d-md-flex gap-3">
+                        <button class="btn nav-btn" onclick="window.open('Homepage.html', '_self')">Home</button>
+                        <button class="btn nav-btn" onclick="window.open('Guide Page.html', '_self')">Guides</button>
+                        <button class="btn nav-btn" onclick="window.open('Community.html', '_self')">Community</button>
+                        <button class="btn nav-btn" onclick="window.open('News Letter.html', '_self')">News</button>
+                        <button class="btn nav-btn" onclick="window.open('Contact Us.html', '_self')">Contact</button>
+                    </div>
+                </div>
+
+                <!-- Account button -->
+                <a href="Profile.html" id="accountBtn" class="btn btn-outline-primary fw-bold d-flex align-items-center border-2">
+                <span id="accountLabel">Sign in</span>
+                <img src="Images/user_profile_icon.jpg" alt="Profile" class="rounded-circle ms-2" width="25" height="25">
+                </a>
+            </div>
+
+            <!-- Narrow Screen Nav Buttons -->
+            <div class="d-flex d-md-none justify-content-center flex-wrap gap-2" style="background-color: rgb(13, 110, 253);">
+                <button class="btn btn-primary btn-sm" onclick="window.open('Homepage.html', '_self')">Home</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Guide Page.html', '_self')">Guides</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Community.html', '_self')">Community</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('News Letter.html', '_self')">News</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Contact Us.html', '_self')">Contact</button>
+            </div>
+        </header>
+        
+        <!-- Content -->
+        <div class="container-fluid">
+            <div class="row px-2">
+              <!-- Sidebar button mobile -->
+                <div class="d-md-none mb-0 mt-2">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+                    ☰ Menu
+                    </button>
+                </div>
+          
+                <!-- Sidebar for large screens -->
+                <div class="col-2 sidebar d-none d-md-block border-end border-primary">
+                    <!-- Shared nav -->
+                    <div class="nav flex-column gap-2 my-2 me-3" id="sidebar-nav" role="tablist">
+                    <h5 class="mb-0">Contents</h5>
+                    <button class="btn btn-outline-primary active" data-bs-toggle="tab" data-bs-target="#feed" type="button">My Feed</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#popular" type="button">Popular</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#recent" type="button">Most Recent</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#my_posts" type="button">My Posts</button>
+            
+                    <h5 class="mb-0 mt-3">Discussions</h5>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#review" type="button">Work Review</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#concepts" type="button">Concepts</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#tips" type="button">Tips</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#debugging" type="button">Debugging</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#modeling" type="button">Modeling</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#monetization" type="button">Monetization</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#featureSuggestions" type="button">Feature Suggestion</button>
+            
+                    <h5 class="mb-0 mt-3">Communities</h5>
+                    <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#all_communities" type="button">All</button>
+                    <button id="addMoreBtn" class="btn nav-btn" type="button" data-bs-toggle="modal" data-bs-target="#communityModal">
+                        Add More +
+                    </button>
+                    </div>
+                </div>
+            
+                <!-- Sidebar as offcanvas for mobile -->
+                <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas">
+                    <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Navigation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                    <!-- Reuse the same nav -->
+                    <div id="sidebar-nav-mobile"></div>
+                    </div>
+                </div>            
+
+                <div class="container-fluid col-12 col-md-8 mt-3 mb-3">
+                    <div class="row px-0">
+                        
+                    <!-- Posts List -->
+                    <div id="postsWrapper" class="col-12 col-md-7 flex-grow-1">
+                        
+                        <!-- Community Banner -->
+                        <div id="communityBanner" class="card mb-3 mx-auto" style="max-width:800px; display:none;">
+                            <img id="communityBannerImg"
+                                src=""
+                                class="img-fluid rounded w-100"
+                                alt="Community Banner"
+                                style="height:200px; object-fit:cover;">
+                            <div class="card-body d-flex justify-content-between align-items-start">
+                                <!-- Left side: title + description -->
+                                <div>
+                                    <h3 class="card-title" id="communityTitle"></h3>
+                                    <p class="mb-1 text-secondary">Member Count: 
+                                        <span id="MemberCount">nil</span>
+                                    </p>
+                                    <p class="card-text" id="communityDesc"></p>
+                                </div>
+
+                                <!-- Right side: member count + join button -->
+                                <div class="text-end">
+                                    <button id="joinCommunityBtn" class="btn btn-outline-primary px-4">Join</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Create Posts -->
+                        <div id="createPostForm" class="card p-3 w-100 mx-auto mt-3" style="max-width:800px;">
+                            <h5>Create a New Post</h5>
+                            <table class="table table-borderless">
+                                <tbody>
+                                <tr>
+                                    <td><label for="newTitle">Title:</label></td>
+                                    <td><input type="text" id="newTitle" class="form-control" placeholder="Enter post title"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="newTag">Tag:</label></td>
+                                    <td>
+                                    <select id="newTag" class="form-select">
+                                        <option value="Work Review">Work Review</option>
+                                        <option value="Concepts">Concepts</option>
+                                        <option value="Tips">Tips</option>
+                                        <option value="Debugging">Debugging</option>
+                                        <option value="Modeling">Modeling</option>
+                                        <option value="Monetization">Monetization</option>
+                                        <option value="Feature Suggestion">Feature Suggestion</option>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="newImage">Image:</label></td>
+                                    <td><input type="file" id="newImage" class="form-control" accept="image/*"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="newDesc">Description:</label></td>
+                                    <td><textarea id="newDesc" class="form-control extendingTextBox" rows="3" placeholder="Write a description..."></textarea></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button id="submitPostBtn" class="btn btn-outline-primary mt-2">Post</button>
+                        </div>
+                        
+                        <div id="postsColumn"></div>
+
+                        <div class="p-2 w-100 mx-auto mt-4">
+                            <h3 style="text-align: center;">You have reached the end!</h3>
+                        </div>
+                    </div>
+
+                    <!-- Post Details Panel (Replaces the Post List Upon Opening A Post) -->
+                    <div id="postPanel" class="col-12 col-md-7 flex-grow-1 mb-3 d-none">
+                        <div class="card p-2 w-100 mx-auto mt-3" style="max-width: 800px;">
+                            <!-- Back button -->
+                            <div class="d-flex justify-content-start mb-0">
+                            <button class="button_text btn btn-outline-secondary bg-transparent border-0" id="closePanel">← Back to Posts</button>
+                            </div>
+
+                            <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span id="panelCommunity" class="badge bg-primary" style="display:none;"></span>
+                                    </td>
+                                </tr>
+                                <!-- Profile and User -->
+                                <tr>
+                                    <td>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <img id="panelProfile" src="Images/Profile.png" alt="Profile"
+                                                class="rounded-circle img-fluid border"
+                                                style="width:35px; height:35px;">
+                                            <h6 id="panelUsername" class="mb-0 ms-2"></h6>
+                                            <span id="panelDateCreated" class="mb-0 ms-2 text-secondary"></span>
+                                        </div>
+                                        <!-- Modify button -->
+                                        <button id="panelModifyBtn"
+                                                class="btn btn-outline-warning btn-sm d-none">
+                                            Modify
+                                        </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Image or Description -->
+                                <tr>
+                                <td>
+                                    <h4 id="panelTitle"></h4>
+                                    <img id="panelImage"
+                                        class="img-fluid border rounded d-block mx-auto">
+                                </td>
+                                </tr>
+
+                                <!-- Like + Comment -->
+                                <tr>
+                                <td>
+                                    <div class="d-flex gap-3">
+                                    <span class="d-flex align-items-center">
+                                        <button class="panel_like-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                            <i class="fa fa-heart"></i>
+                                        </button>
+                                        <span id="panelLikes" class="ms-2"></span>
+                                    </span>
+
+                                    <span class="d-flex align-items-center">
+                                        <button class="panel_comments-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                            <img src="Images/Comment.png" alt="Comment" style="width:30px; height:30px; object-fit:contain;">
+                                        </button>
+                                        <span id="panelComments" class="ms-2"></span>
+                                    </span>
+                                    </div>
+                                </td>
+                                </tr>
+                            </tbody>
+                            </table>
+
+                            <hr>
+                            <h6 class="ms-2">Comments:</h6>
+                            <div class="mt-0">
+                            <textarea
+                                        class="form-control rounded extendingTextBox"
+                                        rows="1"
+                                        placeholder="Help start a conversation!"></textarea>
+
+                            <button id="postCommentBtn" class="btn btn-outline-primary mt-2">
+                                Post Comment
+                            </button>
+
+                            <div id="noConvoWrapper" class="text-center">
+                                <span id="noConvoText" class="d-block text-muted mt-5 mb-5">
+                                There's no conversations currently
+                                </span>
+                            </div>
+
+                            <!-- Dynamic comments will go here -->
+                            <div id="commentsContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recently Viewed -->
+                    <div class="col-md-4">
+                        <div class="most_Recent">
+                            <div id="recentlyViewedColumn"></div>
+                        </div>
+                    </div>
+
+                    <!-- Search For Communities -->
+                    <div class="modal fade" id="communityModal" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content" style="max-width: 400px; margin: auto;">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Explore Communities</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body" style="max-height: 50vh; overflow-y: auto;">
+                                <!-- Scrollable list with gaps -->
+                                <div id="communityList" class="d-flex flex-column gap-1"></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modify Post -->
+                    <div class="modal fade" id="modifyModal" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modify Post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="modifyTitle">Title:</label>
+                                <input type="text" id="modifyTitle" class="form-control" placeholder="Enter new title">
+
+                                <label for="modifyDesc" class="mt-3">Description:</label>
+                                <textarea id="modifyDesc" class="form-control" rows="3"
+                                            placeholder="Enter new description..."></textarea>
+
+                                <label for="modifyImage" class="mt-3">Image:</label>
+                                <input type="file" id="modifyImage" class="form-control" accept="image/*">
+                            </div>
+                            <div class="modal-footer">
+                                <button id="saveChangesBtn" class="btn btn-primary">Save Changes</button>
+                                <button id="deletePostBtn" class="btn btn-danger">Delete Post</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modify Comment -->
+                    <div class="modal fade" id="modifyCommentModal" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modify Comment</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <textarea id="modifyCommentText" class="form-control" rows="3"
+                                placeholder="Edit your comment..."></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="saveCommentChangesBtn" class="btn btn-primary">Save Changes</button>
+                                <button id="deleteCommentBtn" class="btn btn-danger">Delete Comment</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-navy text-white text-center fw-bold py-2">
+            <span>Dev Blox&trade; Inc. All Rights Reserved</span>
+        </footer>
+
+        <script>
+            //Global
+            // Connected to the account system: reads whoever is actually
+            // logged in (set by the login page), rather than a hardcoded name.
+            let currentUser = localStorage.getItem("loggedInUser") || "Guest";
+            let currentFilter = "feed"; // default
+            let currentCommunity = null;
+
+            // --- Account button in the header (same pattern as other pages) ---
+            (function updateAccountButton() {
+                const loggedInUser = localStorage.getItem("loggedInUser");
+                const accountLabel = document.getElementById("accountLabel");
+                const accountBtn = document.getElementById("accountBtn");
+
+                if (!accountLabel || !accountBtn) return;
+
+                if (loggedInUser) {
+                    accountLabel.textContent = loggedInUser;
+                } else {
+                    accountBtn.href = "Log in and Log out.html";
+                }
+            })();
+            // saving and loading   "recently viewed" for each account
+            let recentlyViewed = [];
+            function loadRecentlyViewed() {
+                if (currentUser === "Guest") {
+                    recentlyViewed = []; // guests never load history
+                    return; 
+                }
+            
+                const saved = JSON.parse(localStorage.getItem("recentlyViewed") || "{}");
+                recentlyViewed = saved[currentUser] || [];
+            }
+
+            function saveRecentlyViewed() {
+                if (currentUser === "Guest") return; // guests never save
+
+                const saved = JSON.parse(localStorage.getItem("recentlyViewed") || "{}");
+                saved[currentUser] = recentlyViewed;
+                localStorage.setItem("recentlyViewed", JSON.stringify(saved));
+            }
+
+            // Data of Posts
+            let posts = {
+            1: {
+                id: 1,
+                username: "Petter",
+                title: "Thoughts on this car?",
+                image: "Images/Mitsubishi_FTO.jpg",
+                description: "Personally, my most favourite coupe. It looks cool, sporty and cute at the same time! Its also a vehicle that not a lot of people talk about though. This car may not be the fastest compared to the other, but it sure is a fun and lightweight vehicle.",
+                likes: ["St31ner", "mejaychop", "Just_an_abrams", "Namer56"],
+                commentList: [
+                { username: "Just_an_abrams", text: "Honesty fair choice", 
+                    likes: ["Petter", "Namer56"], createdAt: new Date("2026-07-25T10:00:00") },
+                { username: "Namer56", text: "Eyy not bad", 
+                    likes: ["Petter", "Just_an_abrams"], createdAt: new Date("2026-07-25T10:00:00") }
+                ],
+                topic: "Concepts",       // new field
+                community: "Dreefters",       // new field
+                createdAt: new Date("2026-07-25T10:00:00") // for recency
+            },
+            2: {
+                id: 2,
+                username: "Petter",
+                title: "Angelica Render for a friend",
+                image: "Images/Render.png",
+                description: "Have been doing this the whole day. What are your thoughts? OC creator: mejaychop",
+                likes: ["Joony_J", "mejaychop", "Sir_Dino_The_Third", "St31ner"],
+                commentList: [
+                { username: "mejaychop", text: "OMG thanks you soo much", 
+                    likes: ["Petter", "Joony_J", "mejaychop", "Sir_Dino_The_Third", "St31ner"], createdAt: new Date("2026-06-23T10:01:22") },
+                { username: "Sir_Dino_The_Third", text: "Wow I love this!", 
+                    likes: ["Petter", "Joony_J"], createdAt: new Date("2026-06-23T10:01:22") },
+                { username: "St31ner", text: "Peeeakkk", 
+                    likes: ["Petter", "mejaychop", "Sir_Dino_The_Third"], createdAt: new Date("2026-06-23T10:05:45") }
+                ],
+                topic: "Modeling",       // new field
+                community: "Builders Unite",       // new field
+                createdAt: new Date("2026-06-23T10:00:00") // for recency
+            },
+            3: {
+                id: 3,
+                username: "gunner321",
+                title: "How to make projectiles",
+                image: null,
+                description: "Hey guys how can i make a gun shoot in roblox studio? Currently, my character can hold the weapon but just i how should i do the shooting?",
+                likes: ["Petter, John Doe"],
+                commentList: [
+                { username: "Petter", text: "Since you already got the tool to equip, you need to add a local script inside the tool and get the mouse position of player on click. In there, record the mouse click position to 3d world and send the starting point to end point to a server script via events. in the server script, simply cast a ray from the start to end", 
+                    likes: ["gunner321", "Kane_2"], createdAt: new Date("2026-07-26T09:00:00") },
+                { username: "gunner321", text: "Ahh i see thank you!", 
+                    likes: ["Petter"], createdAt: new Date("2026-07-26T09:00:00") }
+                ],
+                topic: "Work Review",
+                community: "",
+                createdAt: new Date("2026-07-26T09:00:00")
+            },
+            4: {
+                id: 4,
+                username: "St31ner",
+                title: "Hey guys check out this beat i made for a rhythm game",
+                image: null,
+                description: "Heres my soundcloud link: https://soundcloud.com/st31ner/popular-tracks",
+                likes: ["Little_Gaming45", "Conner_48", "Krebbles", "mejaychop", "Petter"],
+                commentList: [
+                { username: "Petter", text: "Fire as always", 
+                    likes: ["St31ner", "mejaychop", "Krebbles"], createdAt: new Date("2026-07-26T09:00:00") },
+                { username: "mejaychop", text: "Another beat has dropped", 
+                    likes: ["St31ner", "Petter", "Krebbles"], createdAt: new Date("2026-07-26T09:00:00") }
+                ],
+                topic: "Work Review",
+                community: "Sound & Music Lab",
+                createdAt: new Date("2026-07-26T09:00:00")
+            }
+            };
+
+            // --- Persist posts via localStorage ---
+            // Same pattern as community members: the hardcoded posts above
+            // act as starting seed data. If something's already saved, it
+            // replaces the hardcoded set entirely, so posts (and edits,
+            // likes, comments, deletions) actually stick around across
+            // reloads and different logins on this browser.
+            //
+            // Important: createdAt fields are real Date objects (used via
+            // .toISOString() throughout), but JSON can't store Date objects
+            // directly — they get flattened to plain strings. So loadPosts()
+            // manually converts every post's and every comment's createdAt
+            // back into a real Date after reading it from localStorage.
+            function loadPosts() {
+                const saved = JSON.parse(localStorage.getItem("posts"));
+                if (!saved) return; // nothing saved yet — keep the hardcoded seed data
+
+                Object.values(saved).forEach(post => {
+                    if (post.createdAt) post.createdAt = new Date(post.createdAt);
+                    if (Array.isArray(post.commentList)) {
+                        post.commentList.forEach(c => {
+                            if (c.createdAt) c.createdAt = new Date(c.createdAt);
+                        });
+                    }
+                });
+
+                posts = saved;
+            }
+            function savePosts() {
+                localStorage.setItem("posts", JSON.stringify(posts));
+            }
+
+            // Converts an uploaded image file into a base64 data URL, which
+            // (unlike URL.createObjectURL) can actually be stored in
+            // localStorage and still work after a page reload.
+            function fileToBase64(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            let communities = [
+                {
+                    name: "Dreefters",
+                    description: "Welcome! Check out some amazing car and roblox related content! Feel free to talk about your favourite cars, share your renders or showcase your own working car chassis!",
+                    members: ["John Doe", "Mary Lee", "Namer56"],
+                    banner: "Images/Banners/Dreefters.png"
+                },
+                {
+                    name: "Builders Unite", 
+                    description: "A place for Roblox builders who love modeling and creating cool worlds. Share your builds, swap tips, and get inspired by what others are making.",
+                    members: ["John Doe", "Mary Lee"],
+                    banner: "Images/Banners/Builders_Unite.png"
+                },
+                {
+                    name: "Scripticious",
+                    description: "For all the scripters out there — whether you're coding game mechanics, fixing bugs, or experimenting with new ideas, this community is all about helping each other level up in Roblox scripting.",
+                    members: ["John Doe", "Mary Lee"],
+                    banner: "Images/Banners/Scripticious.jpg"
+                },
+                {
+                    name: "Animation Hub",
+                    description: "A place for animators to share rigs, smooth transitions, and creative motion ideas for Roblox characters.",
+                    members: ["Alice", "Bob", "Charlie"],
+                    banner: "Images/Banners/Animation_hub.jpg"
+                },
+                {
+                    name: "UI Designers",
+                    description: "Focused on crafting clean, modern, and user-friendly interfaces for Roblox games. Share tips, mockups, and feedback.",
+                    members: ["Sam", "Taylor", "Jordan"],
+                    banner: "Images/Banners/UI_Designers.png"
+                },
+                {
+                    name: "Sound & Music Lab",
+                    description: "For audio creators who compose soundtracks, effects, and ambient music to bring Roblox worlds to life.",
+                    members: ["Liam", "Sophia", "Ethan"],
+                    banner: "Images/Banners/sound_music_lab.jpg"
+                },
+                {
+                    name: "Map Makers",
+                    description: "Dedicated to terrain sculpting, city layouts, and immersive environments. Show off your maps and learn new tricks.",
+                    members: ["Olivia", "Noah", "Mason"],
+                    banner: "Images/Banners/map_makers.jpeg"
+                },
+                {
+                    name: "Scripting OPS",
+                    description: "Advanced coders who love optimizing scripts, experimenting with Lua patterns, and pushing Roblox Studio to its limits.",
+                    members: ["Ava", "Lucas", "Emma"],
+                    banner: "Images/Banners/scripting_ops.jpg"
+                },
+                {
+                    name: "Testing Grounds",
+                    description: "A collaborative space for playtesting unfinished projects, sharing bug reports, and giving constructive feedback.",
+                    members: ["Isabella", "James", "Benjamin"],
+                    banner: "Images/Banners/testing_grounds.jpg"
+                }
+            ]
+
+            // --- Persist community membership via localStorage ---
+            // The community info itself (name/description/banner) stays
+            // hardcoded, since there's no UI to create new communities yet.
+            // But each community's actual member list is loaded from
+            // localStorage instead, starting empty — this ignores the
+            // hardcoded placeholder names above (those are just test data)
+            // so real join actions actually persist across reloads, on
+            // any browser/computer this runs on.
+            function loadCommunityMembers() {
+                const saved = JSON.parse(localStorage.getItem("communityMembers") || "{}");
+                communities.forEach(c => {
+                    c.members = saved[c.name] || [];
+                });
+            }
+            function saveCommunityMembers() {
+                const data = {};
+                communities.forEach(c => {
+                    data[c.name] = c.members;
+                });
+                localStorage.setItem("communityMembers", JSON.stringify(data));
+            }
+            
+            loadPosts();
+            loadRecentlyViewed();
+            loadCommunityMembers();
+
+            let joinedCommunities = [];
+            function updateJoinedCommunities() {
+                joinedCommunities = communities
+                    .filter(c => c.members.includes(currentUser))
+                    .map(c => c.name);
+            }
+
+            // Populate "Add More+"
+            function populateCommunityList() {
+                const listContainer = document.getElementById("communityList");
+                listContainer.innerHTML = "";
+
+                communities.forEach(c => {
+                    const btn = document.createElement("button");
+                    btn.className = "community-btn btn w-100 mb-2 p-0 position-relative overflow-hidden";
+
+                    btn.innerHTML = `
+                        <!-- Banner image -->
+                        <img src="${c.banner}" alt="${c.name} banner" class="community-bg">
+
+                        <!-- Gradient overlay (for readability) -->
+                        <div class="gradient-overlay"></div>
+
+                        <!-- Text content (always above gradient) -->
+                        <div class="community-text position-relative p-3">
+                            <h5 class="mb-0">${c.name}</h5>
+                            <small class="text-muted">${c.members.length} members</small>
+                        </div>
+                    `;
+
+                    btn.addEventListener("click", () => {
+                        showCommunityPage(c.name);
+                        document.getElementById("postPanel").classList.add("d-none");
+                        document.getElementById("postsWrapper").classList.remove("d-none");
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+
+                    listContainer.appendChild(btn);
+                });
+            }
+            document.getElementById("addMoreBtn").addEventListener("click", () => {
+                populateCommunityList();
+            });
+            populateCommunityList();
+            
+            // Auto Extend Height of .extendingTextBox //
+            document.querySelectorAll('.extendingTextBox').forEach(textarea => {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';              // reset height
+                    this.style.height = this.scrollHeight + 'px'; // expand to fit content
+                });
+            });
+
+            // Converts "createdAt" into recency text //
+            function timeAgo(dateString) {
+                const now = new Date();
+                const created = new Date(dateString);
+                const diffMs = now - created;
+
+                const seconds = Math.floor(diffMs / 1000);
+                const minutes = Math.floor(seconds / 60);
+                const hours   = Math.floor(minutes / 60);
+                const days    = Math.floor(hours / 24);
+                const weeks   = Math.floor(days / 7);
+                const months  = Math.floor(days / 30);
+                const years   = Math.floor(days / 365);
+
+                if (years > 0) return `Created ${years} year${years > 1 ? 's' : ''} ago`;
+                if (months > 0) return `Created ${months} month${months > 1 ? 's' : ''} ago`;
+                if (weeks > 0) return `Created ${weeks} week${weeks > 1 ? 's' : ''} ago`;
+                if (days > 0) return `Created ${days} day${days > 1 ? 's' : ''} ago`;
+                if (hours > 0) return `Created ${hours} hour${hours > 1 ? 's' : ''} ago`;
+                if (minutes > 0) return `Created ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+                return `Created just now`;
+            }
+
+            // Initialize comment counts
+            Object.values(posts).forEach(p => {
+                p.comments = p.commentList.length;
+            });
+
+            const postsColumn = document.getElementById("postsColumn");
+            let currentPostIndex = null;
+            let savedScrollY = 0;
+
+            // Render joined communities in Tab
+            function renderJoinedCommunities() {
+                const desktopNav = document.getElementById("sidebar-nav");
+                const mobileNav = document.querySelector("#sidebar-nav-mobile .nav");
+
+                // Target the actual Add More + button
+                const desktopAddMore = desktopNav.querySelector('.nav-btn');
+                const mobileAddMore = mobileNav.querySelector('.nav-btn');
+
+                // Remove old joined buttons
+                desktopNav.querySelectorAll(".joined-community-btn").forEach(btn => btn.remove());
+                mobileNav.querySelectorAll(".joined-community-btn").forEach(btn => btn.remove());
+
+                joinedCommunities.forEach(c => {
+                    const targetId = `#community_${c.toLowerCase().replace(/\s+/g, "_")}`;
+
+                    const desktopBtn = document.createElement("button");
+                    desktopBtn.className = "btn btn-outline-primary joined-community-btn";
+                    desktopBtn.setAttribute("data-bs-toggle", "tab");
+                    desktopBtn.setAttribute("type", "button");
+                    desktopBtn.setAttribute("data-bs-target", targetId);
+                    desktopBtn.textContent = c;
+                    desktopBtn.addEventListener("click", () => {
+                        showCommunityPage(c);
+
+                        // Close details panel if open
+                        document.getElementById("postPanel").classList.add("d-none");
+                        document.getElementById("postsWrapper").classList.remove("d-none");
+
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+
+                    // Insert before Add More + button
+                    desktopNav.insertBefore(desktopBtn, desktopAddMore);
+
+                    const mobileBtn = desktopBtn.cloneNode(true);
+                    mobileBtn.addEventListener("click", () => {
+                        showCommunityPage(c);
+
+                        // Close details panel if open
+                        document.getElementById("postPanel").classList.add("d-none");
+                        document.getElementById("postsWrapper").classList.remove("d-none");
+
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+                    mobileNav.insertBefore(mobileBtn, mobileAddMore);
+                });
+
+                // Bind syncing for all tab buttons
+                const allButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+                allButtons.forEach(btn => {
+                    btn.addEventListener("shown.bs.tab", function(e) {
+                        const target = e.target.getAttribute("data-bs-target");
+
+                        allButtons.forEach(b => b.classList.remove("active"));
+                        document.querySelectorAll('[data-bs-target="' + target + '"]').forEach(b => b.classList.add("active"));
+
+                        localStorage.setItem("activeTab", target);
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+                });
+            }
+
+            // Activate Community Tab (For when you click on a tag while on a different filter tab)
+            function activateCommunityTab(communityName) {
+                const targetId = `#community_${communityName.toLowerCase().replace(/\s+/g, "_")}`;
+                document.querySelectorAll('[data-bs-toggle="tab"]').forEach(btn => {
+                    btn.classList.remove("active");
+                    if (btn.getAttribute("data-bs-target") === targetId) {
+                        btn.classList.add("active");
+                    }
+                });
+                localStorage.setItem("activeTab", targetId);
+            }
+
+            // Loads Community Banner and Posts//
+            function showCommunityPage(communityName) {
+                currentCommunity = communityName;
+                const banner = document.getElementById("communityBanner");
+                banner.style.display = "block";
+
+                const community = communities.find(c => c.name.toLowerCase() === communityName.toLowerCase());
+
+                // Set banner content dynamically
+                if (community && community.banner) {
+                    banner.querySelector("img").src = community.banner;
+                    banner.querySelector("img").alt = community.name;
+                } else {
+                    banner.querySelector("img").src = "Images/default_banner.jpg"; // fallback
+                    banner.querySelector("img").alt = communityName + " Banner";
+                }
+
+                document.getElementById("communityTitle").textContent = communityName;
+                document.getElementById("MemberCount").textContent = community?.members.length
+                document.getElementById("communityDesc").textContent = community?.description 
+                    ? community.description 
+                    : "Posts from the " + communityName;
+
+                const postsColumn = document.getElementById("postsColumn");
+                postsColumn.innerHTML = "";
+
+                // Populates Posts //
+                let communityPosts = Object.entries(posts)
+                    .filter(([id, post]) => post.community && post.community.toLowerCase() === communityName.toLowerCase())
+                    .map(([id, post]) => ({ id, ...post }));
+
+                // Sort newest first
+                communityPosts.sort((a, b) => b.createdAt - a.createdAt);
+                communityPosts.forEach(post => {
+                    postsColumn.innerHTML += `
+                        <div class="card p-2 w-100 mx-auto mt-3 post-card" style="max-width:800px;" data-id="${post.id}">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <img src="Images/Profile.png" alt="Profile" class="rounded-circle img-fluid border" style="width:35px; height:35px;">
+                                                <h6 class="mb-0 ms-2">${post.username}</h6>
+                                                <span class="mb-0 ms-2 text-secondary" data-created-at="${post.createdAt.toISOString()}">
+                                                ${timeAgo(post.createdAt)}
+                                                </span>
+                                            </div>
+                                            ${
+                                                post.username === currentUser
+                                                ? `<button class="modify-btn btn btn-outline-warning btn-sm" data-id="${post.id}">
+                                                    Modify
+                                                    </button>`
+                                                : ""
+                                            }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>${post.title}</h4>
+                                            ${
+                                                post.image
+                                                    ? `<img src="${post.image}" class="img-fluid border rounded d-block mx-auto">`
+                                                    : `<p class="mt-2" style="white-space: pre-wrap;">${post.description}</p>`
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex gap-3">
+                                                <span class="d-flex align-items-center">
+                                                    <button class="like-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                                        <i class="fa fa-heart"></i>
+                                                    </button>
+                                                    <span class="ms-2">${post.likes.length}</span>
+                                                </span>
+                                                <span class="d-flex align-items-center">
+                                                    <button class="post_comments-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                                        <img src="Images/Comment.png" alt="Comment" style="width:30px; height:30px; object-fit:contain;">
+                                                    </button>
+                                                    <span class="ms-2">${post.commentList.length}</span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                });
+
+                // Like Logic
+                document.querySelectorAll(".like-btn").forEach(heart => {
+                    const card = heart.closest(".post-card");
+                    const postId = parseInt(card.dataset.id);
+                    const post = posts[postId];
+
+                    // If already liked, mark it red
+                    if (post.likes.includes(currentUser)) {
+                        heart.classList.add("liked");
+                    }
+
+                    heart.addEventListener("click", e => {
+                        e.stopPropagation(); // prevent triggering the card click
+
+                        if (currentUser === "Guest") {
+                            alert("You must log in to like posts.");
+                            return;
+                        }
+
+                        const userIndex = post.likes.indexOf(currentUser);
+                        if (userIndex === -1) {
+                            post.likes.push(currentUser);
+                            savePosts();
+                            heart.classList.add("liked");
+                        } else {
+                            post.likes.splice(userIndex, 1);
+                            savePosts();
+                            heart.classList.remove("liked");
+                        }
+
+                        // Update the like counter
+                        const likeCountEl = heart.nextElementSibling;
+                        likeCountEl.textContent = post.likes.length;
+                    });
+                });
+                // Open post and comment
+                document.querySelectorAll(".post_comments-btn").forEach(commentIcon => {
+                    const card = commentIcon.closest(".post-card");
+                    const postId = parseInt(card.dataset.id);
+
+                    commentIcon.parentElement.addEventListener("click", e => {
+                        e.stopPropagation(); // prevent triggering the card click
+
+                        if (currentUser === "Guest") {
+                            alert("You must log in to comment.");
+                            return;
+                        }
+
+                        savedScrollY = window.scrollY;
+                        currentPostIndex = postId;
+                        const post = posts[postId];
+
+                        addToRecentlyViewed(postId);
+
+                        // --- reuse your detail panel setup logic ---
+                        document.getElementById("panelUsername").textContent = post.username === currentUser ? "You" : post.username;
+                        document.getElementById("panelDateCreated").textContent = timeAgo(post.createdAt);
+                        document.getElementById("panelDateCreated").dataset.createdAt = post.createdAt.toISOString();
+                        document.getElementById("panelTitle").textContent = post.title;
+
+                        const panelImage = document.getElementById("panelImage");
+                        if (post.image) {
+                            panelImage.src = post.image;
+                            panelImage.style.display = "block";
+                        } else {
+                            panelImage.src = "";
+                            panelImage.style.display = "none";
+                        }
+
+                        let descEl = document.getElementById("panelDesc");
+                        if (!descEl) {
+                            descEl = document.createElement("p");
+                            descEl.id = "panelDesc";
+                            descEl.classList.add("mt-2");
+                            panelImage.insertAdjacentElement("afterend", descEl);
+                        }
+                        descEl.textContent = post.description || "";
+
+                        document.getElementById("panelLikes").textContent = post.likes.length;
+                        document.getElementById("panelComments").textContent = post.commentList.length;
+
+                        renderComments(post);
+                        renderRecentlyViewed();
+
+                        document.getElementById("postsWrapper").classList.add("d-none");
+                        document.getElementById("postPanel").classList.remove("d-none");
+
+                        window.scrollTo(0, 0);
+
+                        // --- immediately focus the comment box ---
+                        const commentBox = document.querySelector("#postPanel textarea");
+                        if (commentBox) {
+                            commentBox.focus();
+                        }
+                    });
+                });
+                // Modify Post
+                document.querySelectorAll(".modify-btn").forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.stopPropagation();
+
+                        const postId = parseInt(btn.dataset.id || document.getElementById("modifyModal").dataset.postId || currentPostIndex);
+                        const post = posts[postId];
+
+                        document.getElementById("modifyTitle").value = post.title || "";
+                        document.getElementById("modifyDesc").value = post.description || "";
+                        document.getElementById("modifyImage").value = ""; // clear file input
+
+                        document.getElementById("modifyModal").dataset.postId = postId;
+
+                        const modal = new bootstrap.Modal(document.getElementById("modifyModal"));
+                        modal.show();
+                    });
+                });
+                // Make Posts Clickable //
+                document.querySelectorAll(".post-card").forEach(card => {
+                    card.addEventListener("click", () => {
+                    savedScrollY = window.scrollY;
+
+                    const postId = parseInt(card.dataset.id); // dataset.id instead of index
+                    const post = posts[postId];
+                    currentPostIndex = postId;
+
+                    addToRecentlyViewed(postId);
+
+                    // Same detail panel setup as renderPosts
+                    let panelCommunity = document.getElementById("panelCommunity");
+                    if (!panelCommunity) {
+                        panelCommunity = document.createElement("span");
+                        panelCommunity.id = "panelCommunity";
+                        panelCommunity.classList.add("badge", "bg-primary", "ms-2");
+                        document.getElementById("panelProfile").insertAdjacentElement("beforebegin", panelCommunity);
+                    }
+                    if (post.community) {
+                        panelCommunity.textContent = post.community;
+                        panelCommunity.style.display = "inline-block";
+                    } else {
+                        panelCommunity.style.display = "none";
+                    }
+
+                    document.getElementById("panelUsername").textContent = post.username === currentUser ? "You" : post.username;
+                    document.getElementById("panelDateCreated").textContent = timeAgo(post.createdAt);
+                    document.getElementById("panelDateCreated").dataset.createdAt = post.createdAt.toISOString();
+                    document.getElementById("panelTitle").textContent = post.title;
+
+                    const panelImage = document.getElementById("panelImage");
+                    if (post.image) {
+                        panelImage.src = post.image;
+                        panelImage.style.display = "block";
+                    } else {
+                        panelImage.src = "";
+                        panelImage.style.display = "none";
+                    }
+
+                    let descEl = document.getElementById("panelDesc");
+                    if (!descEl) {
+                        descEl = document.createElement("p");
+                        descEl.id = "panelDesc";
+                        descEl.classList.add("mt-2");
+                        panelImage.insertAdjacentElement("afterend", descEl);
+                    }
+                    descEl.textContent = post.description || "";
+
+                    document.getElementById("panelLikes").textContent = post.likes.length;
+                    document.getElementById("panelComments").textContent = post.commentList.length;
+
+                    renderComments(post);
+                    renderRecentlyViewed();
+
+                    document.getElementById("postsWrapper").classList.add("d-none");
+                    document.getElementById("postPanel").classList.remove("d-none");
+
+                    // Updates Data Preset when opening "modify" and button's visibility
+                    if (post.deleted) {
+                        panelBtn.classList.add("d-none");
+                        panelBtn.removeAttribute("data-id");
+                    } else if (post.username === currentUser) {
+                        panelBtn.classList.remove("d-none");
+                        panelBtn.dataset.id = postId;
+                    } else {
+                        panelBtn.classList.add("d-none");
+                        panelBtn.removeAttribute("data-id");
+                    }
+
+                    // Like Function of Post in Details Panel
+                    const panelHeart = document.querySelector(".panel_like-btn");
+                    panelHeart.classList.remove("liked"); // reset state
+                    if (post.likes.includes(currentUser)) {
+                        panelHeart.classList.add("liked");
+                    }
+                    panelHeart.replaceWith(panelHeart.cloneNode(true));
+                    const newPanelHeart = document.querySelector(".panel_like-btn");
+
+                    newPanelHeart.addEventListener("click", e => {
+                        if (currentUser === "Guest") {
+                            alert("You must log in to like posts.");
+                            return;
+                        }
+
+                        const post = posts[currentPostIndex];
+                        const heart = e.currentTarget;
+
+                        const userIndex = post.likes.indexOf(currentUser);
+                        if (userIndex === -1) {
+                            post.likes.push(currentUser);
+                            savePosts();
+                            heart.classList.add("liked");
+                        } else {
+                            post.likes.splice(userIndex, 1);
+                            savePosts();
+                            heart.classList.remove("liked");
+                        }
+
+                        document.getElementById("panelLikes").textContent = post.likes.length;
+
+                        if (currentCommunity) {
+                            showCommunityPage(currentCommunity);
+                        } else {
+                            renderPosts(currentFilter);
+                        }
+                    });
+
+                    // Jumps to commenting when comment btn is clicked from in Details Panel
+                    const panelCommentBtn = document.querySelector(".panel_comments-btn");
+                    if (panelCommentBtn) {
+                        // wipe old listeners
+                        panelCommentBtn.replaceWith(panelCommentBtn.cloneNode(true));
+                        const newPanelCommentBtn = document.querySelector(".panel_comments-btn");
+
+                        newPanelCommentBtn.addEventListener("click", e => {
+                            e.stopPropagation();
+
+                            if (currentUser === "Guest") {
+                                alert("You must log in to comment.");
+                                return;
+                            }
+
+                            const commentBox = document.querySelector("#postPanel textarea");
+                            if (commentBox) {
+                                document.getElementById("postPanel").classList.remove("d-none");
+                                document.getElementById("postsWrapper").classList.add("d-none");
+                                commentBox.focus();
+                                commentBox.scrollIntoView({ behavior: "smooth", block: "center" });
+                            }
+                        });
+                    }
+                    
+                    window.scrollTo(0, 0);
+                    });
+                });
+                
+                const joinBtn = document.getElementById("joinCommunityBtn");
+                if (community && community.members.includes(currentUser)) {
+                    joinBtn.textContent = "Leave";
+                    joinBtn.classList.remove("btn-outline-primary");
+                    joinBtn.classList.add("btn-outline-danger"); // red outline
+                } else {
+                    joinBtn.textContent = "Join";
+                    joinBtn.classList.remove("btn-outline-danger");
+                    joinBtn.classList.add("btn-outline-primary"); // back to original
+                }
+
+                joinBtn.onclick = () => {
+                    if (community) {
+                        if (community.members.includes(currentUser)) {
+                            // --- Leave flow ---
+                            community.members = community.members.filter(u => u !== currentUser);
+                            saveCommunityMembers();
+                            joinedCommunities = joinedCommunities.filter(c => c !== currentCommunity);
+
+                            alert(`You left ${currentCommunity}.`);
+                            renderJoinedCommunities();
+
+                            // Update button back to Join (blue)
+                            joinBtn.textContent = "Join";
+                            joinBtn.classList.remove("btn-outline-danger");
+                            joinBtn.classList.add("btn-outline-primary");
+                        } else {
+                            // --- Join flow ---
+                            community.members.push(currentUser);
+                            saveCommunityMembers();
+                            if (!joinedCommunities.includes(currentCommunity)) {
+                                joinedCommunities.push(currentCommunity);
+                            }
+
+                            alert(`You joined ${currentCommunity}!`);
+                            renderJoinedCommunities();
+                            activateCommunityTab(currentCommunity);
+
+                            // Update button to Leave (red)
+                            joinBtn.textContent = "Leave";
+                            joinBtn.classList.remove("btn-outline-primary");
+                            joinBtn.classList.add("btn-outline-danger");
+                        }
+                    }
+                    document.getElementById("MemberCount").textContent = community?.members.length
+                };
+
+                activateCommunityTab(communityName)
+            }
+
+            // Modify Button Via Panel Details
+            const panelBtn = document.getElementById("panelModifyBtn");
+            panelBtn.addEventListener("click", e => {
+                e.stopPropagation();
+
+                const postId = parseInt(
+                    panelBtn.dataset.id ||
+                    document.getElementById("modifyModal").dataset.postId ||
+                    currentPostIndex
+                );
+                const post = posts[postId];
+
+                document.getElementById("modifyTitle").value = post.title || "";
+                document.getElementById("modifyDesc").value = post.description || "";
+                document.getElementById("modifyImage").value = "";
+
+                document.getElementById("modifyModal").dataset.postId = postId;
+
+                const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById("modifyModal"));
+                modal.show();
+            });
+            // Save Modified Changes Button
+            document.getElementById("saveChangesBtn").addEventListener("click", async () => {
+                const postId = parseInt(document.getElementById("modifyModal").dataset.postId);
+                const post = posts[postId];
+
+                // Grab new values from modal inputs
+                const newTitle = document.getElementById("modifyTitle").value.trim();
+                const newDesc = document.getElementById("modifyDesc").value.trim();
+                const imageInput = document.getElementById("modifyImage");
+
+                // Update post object
+                post.title = newTitle || post.title;
+                post.description = newDesc || post.description;
+
+                if (imageInput.files[0]) {
+                    post.image = await fileToBase64(imageInput.files[0]);
+                }
+
+                // Close modal
+                bootstrap.Modal.getInstance(document.getElementById("modifyModal")).hide();
+                savePosts();
+
+                // Update details panel if this post is currently open
+                if (currentPostIndex === postId) {
+                    document.getElementById("panelTitle").textContent = post.title;
+                    document.getElementById("panelDesc").textContent = post.description || "";
+
+                    const panelImage = document.getElementById("panelImage");
+                    if (post.image) {
+                        panelImage.src = post.image;
+                        panelImage.style.display = "block";
+                    } else {
+                        panelImage.src = "";
+                        panelImage.style.display = "none";
+                    }
+                }
+
+                // Re-render posts and recently viewed
+                if (shuffledFeed) {
+                    const index = shuffledFeed.findIndex(p => p.id == postId);
+                    if (index !== -1) {
+                        shuffledFeed[index] = { id: postId, ...post };
+                    }
+                }
+
+                renderRecentlyViewed()
+                if (currentCommunity) {
+                    showCommunityPage(currentCommunity);
+                } else {
+                    renderPosts(currentFilter);
+                }
+            });
+            // Deletion of post
+            document.getElementById("deletePostBtn").addEventListener("click", () => {
+                const postId = parseInt(document.getElementById("modifyModal").dataset.postId);
+                const post = posts[postId];
+
+                // Replaces Data of Deleted Post (Except Likes and comments for post activity)
+                post.title = "Content Deleted";
+                post.description = "";
+                post.image = null;
+                post.community = "";
+                post.topic = "";
+                post.deleted = true;
+
+                // Close modal
+                bootstrap.Modal.getInstance(document.getElementById("modifyModal")).hide();
+                savePosts();
+
+                // If currently viewing this post in details panel, close it and return to feed
+                if (currentPostIndex === postId) {
+                    document.getElementById("postPanel").classList.add("d-none");
+                    document.getElementById("postsWrapper").classList.remove("d-none");
+                }
+
+                // Re-render depending on context
+                if (shuffledFeed) {
+                    shuffledFeed = shuffledFeed.filter(p => p.id != postId);
+                }
+
+                renderRecentlyViewed()
+                if (currentCommunity) {
+                    showCommunityPage(currentCommunity);
+                } else {
+                    renderPosts(currentFilter);
+                }
+            });
+
+            // Shuffle Posts //
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // swap
+                }
+                return array;
+            }
+
+            let shuffledFeed = null;
+            let lastFilter = null;
+            // Render posts list and Filter them
+            function renderPosts(filter = currentFilter) {
+                postsColumn.innerHTML = "";
+
+                let postArray = Object.entries(posts)
+                    .map(([id, post]) => ({ id, ...post }))
+                    .filter(p => !p.deleted);
+                let filteredPosts = postArray;
+
+
+                if (filter === "feed") {
+                    // Shuffle only if filter changed or cache is empty
+                    if (lastFilter !== "feed" || !shuffledFeed) {
+                        shuffledFeed = shuffleArray([...postArray]);
+                    }
+                    filteredPosts = shuffledFeed;
+                } else if (filter === "popular") {
+                    filteredPosts = [...postArray].sort((a, b) => b.likes.length - a.likes.length);
+                } else if (filter === "recent") {
+                    filteredPosts = [...postArray].sort((a, b) => b.createdAt - a.createdAt);
+                } else if (filter === "my_posts") {
+                    filteredPosts = postArray.filter(p => p.username === currentUser);
+                } else if (filter === "all_communities") {
+                    filteredPosts = postArray.filter(p => p.community && p.community.trim() !== "");
+                } else {
+                    filteredPosts = postArray.filter(p => p.topic.toLowerCase() === filter.toLowerCase());
+                }
+
+                lastFilter = filter;
+
+                // Render the filteredPosts list
+                filteredPosts.forEach(post => {
+                    postsColumn.innerHTML += `
+                        <div class="card p-2 w-100 mx-auto mt-3 post-card" style="max-width:800px;" data-id="${post.id}">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    ${
+                                        post.community
+                                            ? `<tr>
+                                                <td>
+                                                    <span class="badge bg-primary community-badge" data-community="${post.community}">
+                                                        ${post.community}
+                                                    </span>
+                                                </td>
+                                            </tr>`
+                                            : ""
+                                    }
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <img src="Images/Profile.png" alt="Profile" class="rounded-circle img-fluid border" style="width:35px; height:35px;">
+                                                <h6 class="mb-0 ms-2">${post.username}</h6>
+                                                <span class="mb-0 ms-2 text-secondary" data-created-at="${post.createdAt.toISOString()}">
+                                                ${timeAgo(post.createdAt)}
+                                                </span>
+                                            </div>
+                                            ${
+                                                post.username === currentUser
+                                                ? `<button class="modify-btn btn btn-outline-warning btn-sm" data-id="${post.id}">
+                                                    Modify
+                                                    </button>`
+                                                : ""
+                                            }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>${post.title}</h4>
+                                            ${
+                                                post.image
+                                                    ? `<img src="${post.image}" loading="lazy" class="img-fluid border rounded d-block mx-auto">`
+                                                    : `<p class="mt-2" style="white-space: pre-wrap;">${post.description}</p>`
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex gap-3">
+                                                <span class="d-flex align-items-center">
+                                                    <button class="like-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                                        <i class="fa fa-heart"></i>
+                                                    </button>
+
+                                                    <span class="ms-2">${post.likes.length}</span>
+                                                </span>
+                                                <span class="d-flex align-items-center">
+                                                    <button class="post_comments-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                                        <img src="Images/Comment.png" alt="Comment" style="width:30px; height:30px; object-fit:contain;">
+                                                    </button>
+                                                    <span class="ms-2">${post.commentList.length}</span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                });
+
+                // Show community badge
+                document.querySelectorAll(".community-badge").forEach(badge => {
+                    badge.style.cursor = "pointer";
+                    badge.addEventListener("click", e => {
+                        e.stopPropagation(); // prevent card click
+                        const communityName = badge.dataset.community;
+                        showCommunityPage(communityName);
+                        window.scrollTo(0, 0);
+                    });
+                });
+                // Like Logic
+                document.querySelectorAll(".like-btn").forEach(heart => {
+                    const card = heart.closest(".post-card");
+                    const postId = parseInt(card.dataset.id);
+                    const post = posts[postId];
+
+                    // If already liked, mark it red
+                    if (post.likes.includes(currentUser)) {
+                        heart.classList.add("liked");
+                    }
+
+                    heart.addEventListener("click", e => {
+                        e.stopPropagation(); // prevent triggering the card click
+
+                        if (currentUser === "Guest") {
+                            alert("You must log in to like posts.");
+                            return;
+                        }
+
+                        const userIndex = post.likes.indexOf(currentUser);
+                        if (userIndex === -1) {
+                            post.likes.push(currentUser);
+                            savePosts();
+                            heart.classList.add("liked");
+                        } else {
+                            post.likes.splice(userIndex, 1);
+                            savePosts();
+                            heart.classList.remove("liked");
+                        }
+
+                        // Update the like counter
+                        const likeCountEl = heart.nextElementSibling;
+                        likeCountEl.textContent = post.likes.length;
+                    });
+                });
+                // Open post and comment
+                document.querySelectorAll(".post_comments-btn").forEach(commentIcon => {
+                    const card = commentIcon.closest(".post-card");
+                    const postId = parseInt(card.dataset.id);
+
+                    commentIcon.parentElement.addEventListener("click", e => {
+                        e.stopPropagation(); // prevent triggering the card click
+
+                        if (currentUser === "Guest") {
+                            alert("You must log in to comment.");
+                            return;
+                        }
+
+                        savedScrollY = window.scrollY;
+                        currentPostIndex = postId;
+                        const post = posts[postId];
+
+                        addToRecentlyViewed(postId);
+
+                        // --- reuse your detail panel setup logic ---
+                        document.getElementById("panelUsername").textContent = post.username === currentUser ? "You" : post.username;
+                        document.getElementById("panelDateCreated").textContent = timeAgo(post.createdAt);
+                        document.getElementById("panelDateCreated").dataset.createdAt = post.createdAt.toISOString();
+                        document.getElementById("panelTitle").textContent = post.title;
+
+                        const panelImage = document.getElementById("panelImage");
+                        if (post.image) {
+                            panelImage.src = post.image;
+                            panelImage.style.display = "block";
+                        } else {
+                            panelImage.src = "";
+                            panelImage.style.display = "none";
+                        }
+
+                        let descEl = document.getElementById("panelDesc");
+                        if (!descEl) {
+                            descEl = document.createElement("p");
+                            descEl.id = "panelDesc";
+                            descEl.classList.add("mt-2");
+                            panelImage.insertAdjacentElement("afterend", descEl);
+                        }
+                        descEl.textContent = post.description || "";
+
+                        document.getElementById("panelLikes").textContent = post.likes.length;
+                        document.getElementById("panelComments").textContent = post.commentList.length;
+
+                        renderComments(post);
+                        renderRecentlyViewed();
+
+                        document.getElementById("postsWrapper").classList.add("d-none");
+                        document.getElementById("postPanel").classList.remove("d-none");
+
+                        window.scrollTo(0, 0);
+
+                        // --- immediately focus the comment box ---
+                        const commentBox = document.querySelector("#postPanel textarea");
+                        if (commentBox) {
+                            commentBox.focus();
+                        }
+                    });
+                });
+                // Modify post
+                document.querySelectorAll(".modify-btn").forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.stopPropagation();
+
+                        const postId = parseInt(btn.dataset.id || document.getElementById("modifyModal").dataset.postId || currentPostIndex);
+                        const post = posts[postId];
+
+                        document.getElementById("modifyTitle").value = post.title || "";
+                        document.getElementById("modifyDesc").value = post.description || "";
+                        document.getElementById("modifyImage").value = ""; // clear file input
+
+                        document.getElementById("modifyModal").dataset.postId = postId;
+
+                        const modal = new bootstrap.Modal(document.getElementById("modifyModal"));
+                        modal.show();
+                    });
+                });
+                // Make Posts Clickable //
+                document.querySelectorAll(".post-card").forEach(card => {
+                    card.addEventListener("click", () => {
+                        savedScrollY = window.scrollY;
+                        
+                        const postId = parseInt(card.dataset.id);
+                        currentPostIndex = postId;
+                        const post = posts[postId];
+
+                        addToRecentlyViewed(postId);
+
+                        //--------------------------------------------------------------------------------------------------//
+                        // Sets up variables and text content for "Post Details"
+                        let panelCommunity = document.getElementById("panelCommunity");
+                        if (!panelCommunity) {
+                            panelCommunity = document.createElement("span");
+                            panelCommunity.id = "panelCommunity";
+                            panelCommunity.classList.add("badge", "bg-primary", "ms-2");
+                            document.getElementById("panelProfile").insertAdjacentElement("beforebegin", panelCommunity);
+                        }
+                        if (post.community) {
+                            panelCommunity.textContent = post.community;
+                            panelCommunity.style.display = "inline-block";
+                        } else {
+                            panelCommunity.style.display = "none";
+                        }
+
+                        document.getElementById("panelUsername").textContent = post.username === currentUser ? "You" : post.username;
+                        
+                        document.getElementById("panelDateCreated").textContent = timeAgo(post.createdAt);
+                        document.getElementById("panelDateCreated").dataset.createdAt = post.createdAt.toISOString();
+
+                        document.getElementById("panelTitle").textContent = post.title;
+
+                        if (post.image) {
+                            const panelImage = document.getElementById("panelImage");
+                            panelImage.src = post.image;
+                            panelImage.style.display = "block";
+                        } else {
+                            const panelImage = document.getElementById("panelImage");
+                            panelImage.src = ""; // clear out previous image
+                            panelImage.style.display = "none";
+                        }
+
+                        let descEl = document.getElementById("panelDesc");
+                        if (!descEl) {
+                            descEl = document.createElement("p");
+                            descEl.id = "panelDesc";
+                            descEl.classList.add("mt-2");
+                            document.getElementById("panelImage").insertAdjacentElement("afterend", descEl);
+                        }
+                        descEl.textContent = post.description || "";
+
+                        document.getElementById("panelLikes").textContent = post.likes.length;
+                        document.getElementById("panelComments").textContent = post.commentList.length;
+
+                        renderComments(post);
+                        renderRecentlyViewed();
+
+                        document.getElementById("postsWrapper").classList.add("d-none");
+                        document.getElementById("postPanel").classList.remove("d-none");
+
+                        // Updates Data Preset when opening "modify" and button's visibility
+                        if (post.deleted) {
+                            panelBtn.classList.add("d-none");
+                            panelBtn.removeAttribute("data-id");
+                        } else if (post.username === currentUser) {
+                            panelBtn.classList.remove("d-none");
+                            panelBtn.dataset.id = postId;
+                        } else {
+                            panelBtn.classList.add("d-none");
+                            panelBtn.removeAttribute("data-id");
+                        }
+
+                        // Like Function of Post in Details Panel
+                        const panelHeart = document.querySelector(".panel_like-btn");
+                        panelHeart.classList.remove("liked"); // reset state
+                        if (post.likes.includes(currentUser)) {
+                            panelHeart.classList.add("liked");
+                        }
+                        panelHeart.replaceWith(panelHeart.cloneNode(true));
+                        const newPanelHeart = document.querySelector(".panel_like-btn");
+
+                        newPanelHeart.addEventListener("click", e => {
+                            if (currentUser === "Guest") {
+                                alert("You must log in to like posts.");
+                                return;
+                            }
+
+                            const post = posts[currentPostIndex];
+                            const heart = e.currentTarget;
+
+                            const userIndex = post.likes.indexOf(currentUser);
+                            if (userIndex === -1) {
+                                post.likes.push(currentUser);
+                                savePosts();
+                                heart.classList.add("liked");
+                            } else {
+                                post.likes.splice(userIndex, 1);
+                                savePosts();
+                                heart.classList.remove("liked");
+                            }
+
+                            document.getElementById("panelLikes").textContent = post.likes.length;
+
+                            if (currentCommunity) {
+                                showCommunityPage(currentCommunity);
+                            } else {
+                                renderPosts(currentFilter);
+                            }
+                        });
+
+                        // Jumps to commenting when comment btn is clicked from in Details Panel
+                        const panelCommentBtn = document.querySelector(".panel_comments-btn");
+                        if (panelCommentBtn) {
+                            // wipe old listeners
+                            panelCommentBtn.replaceWith(panelCommentBtn.cloneNode(true));
+                            const newPanelCommentBtn = document.querySelector(".panel_comments-btn");
+
+                            newPanelCommentBtn.addEventListener("click", e => {
+                                e.stopPropagation();
+
+                                if (currentUser === "Guest") {
+                                    alert("You must log in to comment.");
+                                    return;
+                                }
+
+                                const commentBox = document.querySelector("#postPanel textarea");
+                                if (commentBox) {
+                                    document.getElementById("postPanel").classList.remove("d-none");
+                                    document.getElementById("postsWrapper").classList.add("d-none");
+                                    commentBox.focus();
+                                    commentBox.scrollIntoView({ behavior: "smooth", block: "center" });
+                                }
+                            });
+                        }
+
+                        window.scrollTo(0, 0);
+                    });
+                });
+            }
+
+            // Close panel
+            document.getElementById("closePanel").addEventListener("click", () => {
+                document.getElementById("communityBanner").style.display = "none";
+                document.getElementById("postsWrapper").classList.remove("d-none");
+                document.getElementById("postPanel").classList.add("d-none");
+                
+                if (currentCommunity) {
+                    // restore community feed
+                    showCommunityPage(currentCommunity);
+                } else {
+                    // restore normal feed
+                    renderPosts(currentFilter);
+                }
+
+                window.scrollTo(0, savedScrollY); // restore instantly
+            });
+
+            // Handle new post creation
+            document.getElementById("submitPostBtn").addEventListener("click", async () => {
+                if (currentUser === "Guest") {
+                    alert("You must log in to post.");
+                    return;
+                } 
+
+                // If inside a community, check membership
+                if (currentCommunity) {
+                    const community = communities.find(c => c.name === currentCommunity);
+                    if (!community || !community.members.includes(currentUser)) {
+                        alert("You must join this community before posting.");
+                        return; // stop here
+                    }
+                }
+
+                const title = document.getElementById("newTitle").value.trim();
+                const imageInput = document.getElementById("newImage");
+                const desc = document.getElementById("newDesc").value.trim();
+                const tag = document.getElementById("newTag").value;
+
+                if (!title) {
+                    alert("Please provide a title.");
+                    return;
+                }
+                if (!desc && !imageInput.files[0]) {
+                    alert("Please provide a description or an image.");
+                    return;
+                }
+
+                let imageURL = null;
+                if (imageInput.files[0]) {
+                    imageURL = await fileToBase64(imageInput.files[0]);
+                }
+
+                const newPost = {
+                    id: null,
+                    username: currentUser,
+                    title: title,
+                    image: imageURL,
+                    description: desc,
+                    likes: [],
+                    commentList: [],
+                    topic: tag,
+                    community: currentCommunity,
+                    createdAt: new Date()
+                };
+
+                const newId = Math.max(...Object.keys(posts).map(Number)) + 1;
+                posts[newId] = newPost;
+                newPost.id = newId
+                savePosts();
+
+                // Re-render depending on context
+                if (currentCommunity) {
+                    showCommunityPage(currentCommunity);
+                } else {
+                    renderPosts(currentFilter);
+                }
+
+                // Clear inputs
+                document.getElementById("newTitle").value = "";
+                document.getElementById("newImage").value = "";
+                document.getElementById("newDesc").value = "";
+            });
+
+            // Render comments
+            function renderComments(post) {
+                const commentsContainer = document.getElementById("commentsContainer");
+                const noConvoWrapper = document.getElementById("noConvoWrapper");
+
+                console.log(post)
+                // Clear old comments
+                commentsContainer.innerHTML = "";
+
+                if (!post || post.commentList.length === 0) {
+                    noConvoWrapper.style.display = "block";
+                    return;
+                }
+
+                noConvoWrapper.style.display = "none";
+
+                post.commentList.forEach((c, index) => {
+                    const commentCard = document.createElement("div");
+                    commentCard.className = "card p-2 w-100 mx-auto mt-3 text-start";
+                    commentCard.style.maxWidth = "800px";
+                    commentCard.innerHTML = `
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <img src="Images/Profile.png" alt="Profile" 
+                                                    class="rounded-circle img-fluid border" 
+                                                    style="width:30px; height:30px;">
+                                                <h6 class="mb-0 ms-2">${c.username === currentUser ? "You" : c.username}</h6>
+                                                <span class="mb-0 ms-2 text-secondary" data-created-at="${c.createdAt.toISOString()}">
+                                                    ${timeAgo(c.createdAt)}
+                                                </span>
+                                            </div>
+                                            ${
+                                                c.username === currentUser
+                                                ? `<button class="modify-comment-btn btn btn-outline-warning btn-sm"
+                                                        data-post-id="${post.id}" 
+                                                        data-comment-index="${index}">
+                                                    Modify
+                                                </button>`
+                                                : ""
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p class="mb-0 ms-2 me-2" style="white-space: pre-wrap;">${c.text}</p></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <button class="comment_like-btn btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:35px; height:35px;">
+                                                <i class="fa fa-heart"></i>
+                                            </button>
+                                            <span class="ms-2">${c.likes.length}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                    commentsContainer.appendChild(commentCard);
+
+                    // Like logic
+                    const heartBtn = commentCard.querySelector(".comment_like-btn");
+                    const likeCountEl = heartBtn.nextElementSibling;
+
+                    if (c.likes.includes(currentUser)) {
+                        heartBtn.classList.add("liked");
+                    }
+
+                    heartBtn.addEventListener("click", e => {
+                        e.stopPropagation();
+
+                        if (currentUser === "Guest") {
+                            alert("You must log in to like comments.");
+                            return;
+                        }
+
+                        const userIndex = c.likes.indexOf(currentUser);
+                        if (userIndex === -1) {
+                            c.likes.push(currentUser);
+                            savePosts();
+                            heartBtn.classList.add("liked");
+                        } else {
+                            c.likes.splice(userIndex, 1);
+                            savePosts();
+                            heartBtn.classList.remove("liked");
+                        }
+
+                        likeCountEl.textContent = c.likes.length;
+                    });
+
+                    // Modify logic
+                    const modifyBtn = commentCard.querySelector(".modify-comment-btn");
+                    if (modifyBtn) {
+                        modifyBtn.addEventListener("click", () => {
+                            const modal = document.getElementById("modifyCommentModal");
+                            modal.dataset.postId = post.id;       // use post.id here
+                            modal.dataset.commentIndex = index;   // index is fine
+                            document.getElementById("modifyCommentText").value = c.text;
+                            bootstrap.Modal.getOrCreateInstance(modal).show();
+                        });
+                    }
+                });
+            }
+            // Save changes to a comment
+            document.getElementById("saveCommentChangesBtn").addEventListener("click", () => {
+                const modal = document.getElementById("modifyCommentModal");
+                const postId = parseInt(modal.dataset.postId);
+                const commentIndex = parseInt(modal.dataset.commentIndex);
+
+                console.log(postId, commentIndex)
+                const newText = document.getElementById("modifyCommentText").value.trim();
+                if (newText) {
+                    posts[postId].commentList[commentIndex].text = newText;
+                }
+
+                savePosts();
+                renderComments(posts[postId]);
+
+                bootstrap.Modal.getInstance(modal).hide();
+            });
+            // Delete a comment
+            document.getElementById("deleteCommentBtn").addEventListener("click", () => {
+                const modal = document.getElementById("modifyCommentModal");
+                const postId = parseInt(modal.dataset.postId);
+                const commentIndex = parseInt(modal.dataset.commentIndex);
+
+                posts[postId].commentList.splice(commentIndex, 1);
+
+                savePosts();
+                renderComments(posts[postId]);
+
+                bootstrap.Modal.getInstance(modal).hide();
+            });
+            
+            // Adjust Height of Sidebar to be (Window height - Top Navbar Height) //
+            function adjustSidebarHeight() {
+                const navbar = document.querySelector('header');
+                const sidebar = document.querySelector('.sidebar');
+                const navHeight = navbar.offsetHeight;
+                sidebar.style.height = `calc(100vh - ${navHeight}px)`;
+            }
+            window.addEventListener('load', adjustSidebarHeight);
+            window.addEventListener('resize', adjustSidebarHeight);
+
+            // Handle posting a new comment
+            document.getElementById("postCommentBtn").addEventListener("click", () => {
+                if (currentUser === "Guest") {
+                    alert("You must log in to comment.");
+                    return;
+                } 
+
+                const post = posts[currentPostIndex];
+                if (!post || post.deleted) {
+                    alert("This post has been deleted. You cannot comment.");
+                    return;
+                }
+
+                const textarea = document.querySelector("#postPanel textarea");
+                const text = textarea.value.trim();
+                if (!text) return;
+
+                post.commentList.push({
+                    username: currentUser,
+                    text: text,
+                    likes: [],
+                    createdAt: new Date()
+                });
+                savePosts();
+
+                renderComments(post);
+                document.getElementById("panelComments").textContent = post.commentList.length;
+                textarea.value = "";
+
+                if (currentCommunity) {
+                    showCommunityPage(currentCommunity);
+                } else {
+                    renderPosts(currentFilter);
+                }
+            });
+
+            // Add Clicked posts inside "recentlyviewed"
+            function addToRecentlyViewed(postId) {
+                // Remove if already exists
+                recentlyViewed = recentlyViewed.filter(id => id !== postId);
+
+                // Add to front
+                recentlyViewed.unshift(postId);
+
+                // Limit to 10 items
+                if (recentlyViewed.length > 10) recentlyViewed.pop();
+
+                saveRecentlyViewed(); // persist for this user
+            }
+
+            // Populate Recently Viewed Posts
+            function renderRecentlyViewed() {
+                const container = document.getElementById("recentlyViewedColumn");
+                container.innerHTML = "";
+
+                recentlyViewed.forEach(postId => {
+                    const post = posts[postId];
+
+                    container.innerHTML += `
+                        <div class="card p-3 recent-card mx-auto mt-3" style="width:300px;" data-id="${postId}">
+                            ${post.community ? `<div><span class="badge bg-primary community-badge mb-2" data-community="${post.community}">${post.community}</span></div>` : ""}
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="Images/Profile.png" alt="Profile" class="rounded-circle img-fluid border" style="width:30px; height:30px;">
+                                <h7 class="mb-0 ms-2">${post.username === currentUser ? "You" : post.username}</h7>
+                                <span class="mb-0 ms-2 text-secondary" data-created-at="${post.createdAt.toISOString()}">
+                                    ${timeAgo(post.createdAt)}
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1 pe-3">
+                                    <h6 class="mb-2">${post.title}</h6>
+                                    ${post.description ? `<p class="mb-2">${post.description}</p>` : ""}
+                                </div>
+                                ${post.image ? `<div style="width:90px; height:90px; flex-shrink:0; overflow:hidden;" class="ms-auto">
+                                    <img src="${post.image}" class="img-fluid rounded border" style="width:100%; height:100%; object-fit:cover;">
+                                </div>` : ""}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Make the recent cards clickable //
+                document.querySelectorAll(".recent-card").forEach(card => {
+                    card.addEventListener("click", () => {
+                        savedScrollY = window.scrollY;
+
+                        const postId = parseInt(card.dataset.id);
+                        currentPostIndex = postId;
+                        const post = posts[postId];
+                        if (!post) return;
+
+                        addToRecentlyViewed(postId);
+
+                        // Update panel content
+                        document.getElementById("panelUsername").textContent = post.username === currentUser ? "You" : post.username;
+                        document.getElementById("panelDateCreated").textContent = timeAgo(post.createdAt);
+                        document.getElementById("panelDateCreated").dataset.createdAt = post.createdAt.toISOString();
+                        document.getElementById("panelTitle").textContent = post.title;
+
+                        const panelImage = document.getElementById("panelImage");
+                        if (post.image) {
+                            panelImage.src = post.image;
+                            panelImage.style.display = "block";
+                        } else {
+                            panelImage.src = "";
+                            panelImage.style.display = "none";
+                        }
+
+                        let descEl = document.getElementById("panelDesc");
+                        if (!descEl) {
+                            descEl = document.createElement("p");
+                            descEl.id = "panelDesc";
+                            descEl.classList.add("mt-2");
+                            panelImage.insertAdjacentElement("afterend", descEl);
+                        }
+                        descEl.textContent = post.description || "";
+
+                        // Update likes/comments counts
+                        document.getElementById("panelLikes").textContent = post.likes.length;
+                        document.getElementById("panelComments").textContent = post.commentList.length;
+
+                        // Update data preset in "modify" menu and buttons visibility
+                        if (post.deleted) {
+                            panelBtn.classList.add("d-none");
+                            panelBtn.removeAttribute("data-id");
+                        } else if (post.username === currentUser) {
+                            panelBtn.classList.remove("d-none");
+                            panelBtn.dataset.id = postId;
+                        } else {
+                            panelBtn.classList.add("d-none");
+                            panelBtn.removeAttribute("data-id");
+                        }
+
+                        // Like Function of Post in Details Panel
+                        const panelHeart = document.querySelector(".panel_like-btn");
+                        panelHeart.classList.remove("liked"); // reset state
+                        if (post.likes.includes(currentUser)) {
+                            panelHeart.classList.add("liked");
+                        }
+                        panelHeart.replaceWith(panelHeart.cloneNode(true));
+                        const newPanelHeart = document.querySelector(".panel_like-btn");
+
+                        newPanelHeart.addEventListener("click", e => {
+                            const post = posts[currentPostIndex];
+                            const heart = e.currentTarget;
+
+                            if (post.deleted === true) {
+                                alert("This post has been deleted");
+                                return;
+                            }
+                            if (currentUser === "Guest") {
+                                alert("You must log in to like posts.");
+                                return;
+                            }
+
+                            const userIndex = post.likes.indexOf(currentUser);
+                            if (userIndex === -1) {
+                                post.likes.push(currentUser);
+                                savePosts();
+                                heart.classList.add("liked");
+                            } else {
+                                post.likes.splice(userIndex, 1);
+                                savePosts();
+                                heart.classList.remove("liked");
+                            }
+
+                            document.getElementById("panelLikes").textContent = post.likes.length;
+
+                            if (currentCommunity) {
+                                showCommunityPage(currentCommunity);
+                            } else {
+                                renderPosts(currentFilter);
+                            }
+                        });
+
+                        // Jumps to commenting when comment btn is clicked from in Details Panel
+                        const panelCommentBtn = document.querySelector(".panel_comments-btn");
+                        if (panelCommentBtn) {
+                            // wipe old listeners
+                            panelCommentBtn.replaceWith(panelCommentBtn.cloneNode(true));
+                            const newPanelCommentBtn = document.querySelector(".panel_comments-btn");
+
+                            newPanelCommentBtn.addEventListener("click", e => {
+                                e.stopPropagation();
+
+                                if (post.deleted === true) {
+                                    alert("This post has been deleted");
+                                    return;
+                                }
+                                if (currentUser === "Guest") {
+                                    alert("You must log in to comment.");
+                                    return;
+                                }
+
+                                const commentBox = document.querySelector("#postPanel textarea");
+                                if (commentBox) {
+                                    document.getElementById("postPanel").classList.remove("d-none");
+                                    document.getElementById("postsWrapper").classList.add("d-none");
+                                    commentBox.focus();
+                                    commentBox.scrollIntoView({ behavior: "smooth", block: "center" });
+                                }
+                            });
+                        }
+
+                        renderComments(post);
+                        renderRecentlyViewed();
+
+                        document.getElementById("postsWrapper").classList.add("d-none");
+                        document.getElementById("postPanel").classList.remove("d-none");
+                        window.scrollTo(0, 0);
+                    });
+                });
+            }
+
+            // Loading Contents such as Posts //
+            document.addEventListener("DOMContentLoaded", function() {
+                // Saves previously chosen filter // 
+                const savedFilter = localStorage.getItem("activeFilter");
+                if (savedFilter) {
+                    currentFilter = savedFilter;
+                    renderPosts(currentFilter);
+                } else {
+                    renderPosts("feed"); // default
+                }
+
+                // Clone the same nav into mobile sidebar
+                const nav = document.querySelector("#sidebar-nav").cloneNode(true);
+                document.querySelector("#sidebar-nav-mobile").appendChild(nav);
+
+                const allButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+                // Restore last active tab from localStorage
+                const lastTab = localStorage.getItem("activeTab");
+                if (lastTab) {
+                const trigger = document.querySelector('[data-bs-target="' + lastTab + '"]');
+                if (trigger) {
+                    // Use Bootstrap's Tab API to show it
+                    const tab = new bootstrap.Tab(trigger);
+                    tab.show();
+                }
+                }
+
+                // Nav Syncing and Last Session Saving
+                allButtons.forEach(btn => {
+                    btn.addEventListener("shown.bs.tab", function(e) {
+                        const target = e.target.getAttribute("data-bs-target");
+
+                        // Remove active state from all buttons
+                        allButtons.forEach(b => b.classList.remove("active"));
+
+                        // Add active to all buttons pointing to the same target
+                        document.querySelectorAll('[data-bs-target="' + target + '"]').forEach(b => b.classList.add("active"));
+
+                        // Save active tab to localStorage
+                        localStorage.setItem("activeTab", target);
+
+                        // Scroll to top
+                        const mainContent = document.querySelector(".tab-content");
+                        if (mainContent) {
+                            mainContent.scrollTop = 0;
+                        }
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+                });
+
+                // Close details posts upon tab change
+                document.querySelectorAll('[data-bs-toggle="tab"]').forEach(btn => {
+                    btn.addEventListener("shown.bs.tab", function() {
+                        // Always hide the post detail panel when switching tabs
+                        document.getElementById("postPanel").classList.add("d-none");
+                        document.getElementById("postsWrapper").classList.remove("d-none");
+                        document.getElementById("communityBanner").style.display = "none";
+
+                        // Reset scroll position
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+                });
+
+                // Filter Contents //
+                document.querySelectorAll('[data-bs-toggle="tab"]').forEach(btn => {
+                    btn.addEventListener("shown.bs.tab", function(e) {
+                        currentCommunity = null; // leaving community view
+                        document.getElementById("communityBanner").style.display = "none";
+
+                        const target = e.target.getAttribute("data-bs-target");
+
+                        let filter = "feed"; // default
+                        if (target === "#feed") filter = "feed";
+                        if (target === "#popular") filter = "popular";
+                        if (target === "#recent") filter = "recent";
+                        if (target === "#my_posts") filter = "my_posts";
+
+                        if (target === "#review") filter = "Work Review";
+                        if (target === "#concepts") filter = "Concepts";
+                        if (target === "#tips") filter = "Tips";
+                        if (target === "#debugging") filter = "Debugging";
+                        if (target === "#modeling") filter = "Modeling";
+                        if (target === "#monetization") filter = "Monetization";
+                        if (target === "#featureSuggestions") filter = "Feature Suggestion";
+
+                        if (target === "#all_communities") filter = "all_communities";
+
+                        currentFilter = filter;
+                        localStorage.setItem("activeFilter", filter);
+                        renderPosts(filter);
+                    });
+                });
+                renderJoinedCommunities();
+            });
+            if (currentCommunity) {
+                showCommunityPage(currentCommunity);
+            } else {
+                renderPosts(currentFilter);
+            }
+            
+            // Updates all posts creation time
+            function refreshTimestamps() {
+                document.querySelectorAll("[data-created-at]").forEach(el => {
+                    const dateStr = el.dataset.createdAt;
+                    if (dateStr) {
+                    el.textContent = timeAgo(new Date(dateStr));
+                    }
+                });
+            }
+
+            renderRecentlyViewed();
+            updateJoinedCommunities()
+
+            // For testing purposes! (reverts posts to their original hardcoded state)
+            function resetAppData() {
+                // Clear posts
+                localStorage.removeItem("posts");
+
+                // Clear community membership
+                localStorage.removeItem("communityMembers");
+
+                // Clear recently viewed (per-user history)
+                localStorage.removeItem("recentlyViewed");
+
+                // Reload seed data
+                loadPosts();
+                loadCommunityMembers();
+                loadRecentlyViewed();
+
+                // Re-render everything
+                updateJoinedCommunities();
+                renderJoinedCommunities();
+                renderPosts(currentFilter);
+                renderRecentlyViewed();
+
+                alert("Posts, communities, and recently viewed have been reset to defaults.");
+            }
+            // resetAppData()
+            setInterval(refreshTimestamps, 30000); // 30 seconds
+        </script>
+    </body>
+</html>
