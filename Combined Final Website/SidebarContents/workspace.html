@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roblox Studio Workspace Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .note {
+      border-left: 4px solid #3498db;
+      padding-left: 10px;
+      margin: 10px 0;
+      background: #ecf6fc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Workspace</h1>
+  <p>
+    The <strong>Workspace</strong> is the root container in Roblox Studio where all 3D objects
+    that appear in the game world are stored. It acts as the main environment where parts,
+    models, and scripts interact.
+  </p>
+
+  <h2>Key Features</h2>
+  <ul>
+    <li><strong>Parts and Models:</strong> All physical objects in your game are placed inside Workspace.</li>
+    <li><strong>Scripts:</strong> Scripts can reference Workspace to access or modify objects.</li>
+    <li><strong>Visibility:</strong> Workspace is accessible to both the server and the client.</li>
+  </ul>
+
+  <h2>Server vs Client</h2>
+  <p>
+    Roblox uses a client-server model. The Workspace exists on both sides:
+  </p>
+  <ul>
+    <li><strong>Server:</strong> Handles game logic, physics, and security.</li>
+    <li><strong>Client:</strong> Handles rendering and user interface.</li>
+  </ul>
+  <p>
+    Communication between server and client is done using <code>RemoteEvents</code> and <code>RemoteFunctions</code>.
+  </p>
+
+  <h2>Best Practices</h2>
+  <ul>
+    <li>Organize objects into folders for clarity (e.g., “Enemies”, “Items”).</li>
+    <li>Use <code>CollectionService</code> tags to manage groups of objects.</li>
+    <li>Keep Workspace clean by moving non-visual data into <code>ReplicatedStorage</code> or <code>ServerStorage</code>.</li>
+  </ul>
+
+  <div class="note">
+    <strong>Note:</strong> Certain objects such as GUI and Sounds do not rely on workspace to work.
+  </div>
+</body>
+</html>

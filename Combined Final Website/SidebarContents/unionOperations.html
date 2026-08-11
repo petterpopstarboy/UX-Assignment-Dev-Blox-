@@ -1,0 +1,279 @@
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Roblox Studio Three Scripts Documentation</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;   /* horizontal centering */
+  align-items: flex-start;   /* align from the top, not stretch */
+  min-height: 100vh;         /* body fills full viewport height */
+}
+
+.container {
+  max-width: 1800px;         /* control line length */
+  width: 100%;               /* responsive width */
+  margin: 0 5rem;            /* spacing left/right */
+  box-sizing: border-box;
+}
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .note {
+      border-left: 4px solid #3498db;
+      padding-left: 10px;
+      margin: 10px 0;
+      background: #ecf6fc;
+    }
+  </style>
+</head>
+
+  <body>
+    <div class="container">
+      <h1>Union Operation</h1>
+      <p>
+        The most important and customisable basepart in roblox studio. To combine two parts together into one without grouping them, you can use union operations to combine all their properties into one. Note that colours can be different even when unionioned except materials
+      </p>
+
+      <h2>Regular Unions</h2>
+      <p>
+        A <strong>Union</strong> combines two or more parts into a single basepart. This is useful for creating complex shapes 
+        without grouping. Unlike models, unions merge geometry into one object, which can reduce part count and improve performance. 
+        However, note that while colours can differ, materials are unified across the union.
+      </p>
+      <p>You can union parts using "CTRL + Shift + G". To seperate or undo and union, do "CTRL + Shift + U"</p>
+
+      <canvas id="unionCanvas" width="400" height="300" style="border: 2px solid black; border-radius: 15px;"></canvas>
+      <div>
+        <button onclick="spawnRect('union')">Spawn Rectangle</button>
+        <button onclick="spawnCircle('union')">Spawn Circle</button>
+        <button onclick="resetCanvas('union')">Reset</button>
+        <button onclick="unionSelected('union')">Union</button>
+      </div>
+
+      <h2>Negative Unions</h2>
+      <p>
+        A <strong>Negative Union</strong> allows you to subtract one part from another. By toggling a part to negative, 
+        it acts like a "cutter" that removes geometry from the positive part. This is especially useful for hollowing out 
+        shapes, carving details, or creating openings. 
+      </p>
+      <p>You can toggle parts between positive and negative using "CTRL + Shift + N". To cut out parts, simply union a positive part with a negative part.</p>
+
+      <canvas id="negCanvas" width="400" height="300" style="border: 2px solid black; border-radius: 15px;"></canvas>
+      <div>
+        <button onclick="spawnRect('neg')">Spawn Rectangle</button>
+        <button onclick="spawnCircle('neg')">Spawn Circle</button>
+        <button onclick="resetCanvas('neg')">Reset</button>
+        <button onclick="toggleNegative('neg')">Toggle Pos/Neg</button>
+        <button onclick="unionSelected('neg')">Union</button>
+      </div>
+
+      <h2>Intersect Unions</h2>
+      <p>
+        The <strong>Intersect</strong> operation keeps only the overlapping volume of selected parts. If two parts share 
+        a common area, that intersection becomes the new shape. If no intersection exists, you would receive an error (AKA zero results). This is 
+        useful for precise modeling, trimming shapes, or creating complex cutouts. 
+      </p>
+      <p>You can toggle parts between positive and negative using "CTRL + Shift + I".</p>
+
+      <canvas id="interCanvas" width="400" height="300" style="border: 2px solid black; border-radius: 15px;"></canvas>
+      <div>
+        <button onclick="spawnRect('inter')">Spawn Rectangle</button>
+        <button onclick="spawnCircle('inter')">Spawn Circle</button>
+        <button onclick="resetCanvas('inter')">Reset</button>
+        <button onclick="intersectSelected('inter')">Intersect</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
+    <script>
+      // Setup projects
+      let projects = {
+        union: new paper.Project(document.getElementById('unionCanvas')),
+        neg: new paper.Project(document.getElementById('negCanvas')),
+        inter: new paper.Project(document.getElementById('interCanvas'))
+      };
+
+      let shapes = { union: [], neg: [], inter: [] };
+      let selected = { union: new Set(), neg: new Set(), inter: new Set() };
+
+      // Spawn functions
+      function spawnRect(type) {
+        projects[type].activate();
+        let rect = new paper.Path.Rectangle(new paper.Point(80, 80), new paper.Size(100, 60));
+        rect.fillColor = 'blue';
+        rect.isNegative = false;
+        shapes[type].push(rect);
+      }
+      function spawnCircle(type) {
+        projects[type].activate();
+        let circle = new paper.Path.Circle(new paper.Point(150, 150), 40);
+        circle.fillColor = 'red';
+        circle.isNegative = false;
+        shapes[type].push(circle);
+      }
+
+      // Reset
+      function resetCanvas(type) {
+        shapes[type].forEach(s => s.remove());
+        shapes[type] = [];
+        selected[type].clear();
+      }
+
+      // Selection + dragging
+      for (let key of ['union','neg','inter']) {
+        projects[key].activate();
+        let dragging = null;
+        let clickedShape = null;
+
+        projects[key].view.onMouseDown = function(event) {
+          clickedShape = null;
+          // loop backwards so topmost shape is checked first
+          for (let i = shapes[key].length - 1; i >= 0; i--) {
+            let shape = shapes[key][i];
+            if (shape.contains(event.point)) {
+              clickedShape = shape;
+              dragging = shape; // prepare for drag
+              break;
+            }
+          }
+
+          if (!clickedShape) {
+            // click empty space → clear selection
+            selected[key].forEach(s => { s.strokeColor = null; s.strokeWidth = 1; });
+            selected[key].clear();
+          }
+        };
+
+        projects[key].view.onMouseDrag = function(event) {
+          if (dragging) {
+            // move shape but do NOT toggle selection
+            dragging.position = dragging.position.add(event.delta);
+          }
+        };
+
+        projects[key].view.onMouseUp = function(event) {
+          if (clickedShape) {
+            // If mouse up happened without significant drag, toggle selection
+            if (event.delta.length < 2) { // small movement = click
+              if (selected[key].has(clickedShape)) {
+                // deselect
+                clickedShape.strokeColor = null;
+                clickedShape.strokeWidth = 1;
+                selected[key].delete(clickedShape);
+              } else {
+                // select
+                clickedShape.strokeColor = 'yellow';
+                clickedShape.strokeWidth = 3;
+                selected[key].add(clickedShape);
+              }
+            }
+          }
+          dragging = null;
+          clickedShape = null;
+        };
+      }
+
+
+      // Toggle negative (only for neg canvas)
+      function toggleNegative(type) {
+        selected[type].forEach(shape => {
+          shape.isNegative = !shape.isNegative;
+          shape.fillColor = shape.isNegative ? 'black' : (shape instanceof paper.Path.Rectangle ? 'blue' : 'red');
+        });
+      }
+
+      // Union operation
+      function unionSelected(type) {
+        if (selected[type].size < 2) return;
+        projects[type].activate();
+        let arr = Array.from(selected[type]);
+
+        // Start with a clean clone of the first shape
+        let result = arr[0].clone();
+        result.strokeColor = null;
+        result.strokeWidth = 0;
+        result.fillColor = null;
+
+        // Unite positives
+        for (let i = 1; i < arr.length; i++) {
+          if (!arr[i].isNegative) {
+            result = result.unite(arr[i]);
+          }
+        }
+
+        // Subtract negatives
+        if (type === 'neg') {
+          arr.forEach(s => {
+            if (s.isNegative) {
+              result = result.subtract(s);
+            }
+          });
+        }
+
+        // Remove originals (both pos and neg)
+        arr.forEach(s => s.remove());
+        shapes[type] = shapes[type].filter(s => !arr.includes(s));
+
+        // Style the final result
+        result.fillColor = 'green';
+        result.strokeColor = 'yellow';
+        result.strokeWidth = 3;
+
+        // Track selection
+        shapes[type].push(result);
+        selected[type].clear();
+        selected[type].add(result);
+      }
+
+
+      // Intersect operation
+      function intersectSelected(type) {
+        if (selected[type].size < 2) return;
+        projects[type].activate();
+        let arr = Array.from(selected[type]);
+
+        // Start with a clean clone
+        let result = arr[0].clone();
+        result.strokeColor = null;
+        result.strokeWidth = 0;
+
+        for (let i = 1; i < arr.length; i++) {
+          let temp = result.intersect(arr[i]);
+          result.remove(); // remove old partial result
+          result = temp;
+
+          if (!result || result.isEmpty()) {
+            // No common intersection → remove everything
+            arr.forEach(s => s.remove());
+            shapes[type] = shapes[type].filter(s => !arr.includes(s));
+            selected[type].clear();
+            if (result) result.remove(); // clean up leftover
+            return;
+          }
+        }
+
+        // Remove originals
+        arr.forEach(s => s.remove());
+        shapes[type] = shapes[type].filter(s => !arr.includes(s));
+
+        // Add final result
+        result.fillColor = 'purple';
+        result.strokeColor = 'yellow';
+        result.strokeWidth = 3;
+        shapes[type].push(result);
+
+        selected[type].clear();
+        selected[type].add(result);
+      }
+
+    </script>
+  </body>
+</html>
