@@ -1,0 +1,187 @@
+<!-- Credits -->
+<!-- Made by Kai Ze -->
+<!-- Linked by Kai Ze and Zheng Bo -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dev Bloxs - Homepage</title>
+
+      <script src="
+      https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js
+      "></script>
+      <link href="
+      https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css
+      " rel="stylesheet">
+
+      <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex flex-column min-vh-100 m-0">
+      <!-- Top Bar -->
+      <header class="sticky-top">
+          <div class="container-fluid py-2 d-flex justify-content-between align-items-center border-bottom border-primary bg-white">
+              <div class="d-flex align-items-center">
+                  <a href="Homepage.html" class="text-decoration-none">
+                    <h2 class="text-primary m-0 me-4">Dev Blox</h2>
+                  </a>
+
+                    <!-- PC Nav buttons, only visible in wider displays ("d-md class determines its range of visibility") -->
+                    <div class="d-none d-md-flex gap-3">
+                        <button class="btn nav-btn" onclick="window.open('Homepage.html', '_self')">Home</button>
+                        <button class="btn nav-btn" onclick="window.open('Guide Page.html', '_self')">Guides</button>
+                        <button class="btn nav-btn" onclick="window.open('Community.html', '_self')">Community</button>
+                        <button class="btn nav-btn" onclick="window.open('News Letter.html', '_self')">News</button>
+                        <button class="btn nav-btn" onclick="window.open('Contact Us.html', '_self')">Contact</button>
+                    </div>
+                </div>
+
+                <!-- Account button -->
+                <a href="Profile.html" id="accountBtn" class="btn btn-outline-primary fw-bold d-flex align-items-center border-2">
+                <span id="accountLabel">Sign in</span>
+                <img src="Images/user_profile_icon.jpg" alt="Profile" class="rounded-circle ms-2" width="25" height="25">
+                </a>
+            </div>
+
+            <!-- Narrow Screen Nav Buttons -->
+            <div class="d-flex d-md-none justify-content-center flex-wrap gap-2" style="background-color: rgb(13, 110, 253);">
+                <button class="btn btn-primary btn-sm" onclick="window.open('Homepage.html', '_self')">Home</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Guide Page.html', '_self')">Guides</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Community.html', '_self')">Community</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('News Letter.html', '_self')">News</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Contact Us.html', '_self')">Contact</button>
+          </div>
+      </header>
+
+              <!-- Main Content -->
+            <main class="flex-grow-1 d-flex flex-column">
+              <!-- HERO -->
+        <section class="hero text-white d-flex align-items-center">
+          <div class="container d-flex flex-column flex-lg-row align-items-lg-center gap-3">
+            <div>
+              <div class="hero-eyebrow" id="heroEyebrow">Dev Blox</div>
+              <h1>Everything you need to build on Roblox</h1>
+              <p>Stop piecing together scattered tutorials and start actually shipping. Dev Blox is where Roblox developers learn faster and build together.</p>
+              <a href="#explore" class="btn btn-lg hero-cta border-0 mt-2">Explore More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- WHAT WE DO -->
+        <section class="info-section text-white d-flex align-items-center" style="background-image: linear-gradient(rgba(11, 30, 61, 0.75), rgba(11, 30, 61, 0.75)), url('Images/what-we-do-bg.jpg');">
+          <div class="container-fluid px-4 info-container">
+            <div class="info-eyebrow">What is Dev Blox?</div>
+            <h2>One place for everything Roblox development</h2>
+            <p>Guides, community, and news, all together in one place. Everything you need to build on Roblox, without hunting through a dozen outdated tutorials scattered across the internet.</p>
+          </div>
+        </section>
+
+        <!-- VALUE & BENEFITS -->
+        <section class="info-section text-white d-flex align-items-center" style="background-image: linear-gradient(rgba(11, 30, 61, 0.75), rgba(11, 30, 61, 0.75)), url('Images/value-benefits-bg.png');">
+          <div class="container-fluid px-4 info-container">
+            <div class="info-eyebrow">Why Developers Choose Dev Blox</div>
+            <h2>Built to save you time and get you unstuck</h2>
+            <ul class="benefit-list list-unstyled">
+              <li class="d-flex align-items-start">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EAB600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Real answers from real developers, not generic tutorials that skip the details.</span>
+              </li>
+              <li class="d-flex align-items-start">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EAB600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>A community that actually replies. Get real feedback from people who ave experience.</span>
+              </li>
+              <li class="d-flex align-items-start">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EAB600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>News & updates summarized clearly, stay informed on changes before it breaks your project.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ABOUT US -->
+        <section class="info-section text-white d-flex align-items-center" style="background-image: linear-gradient(rgba(11, 30, 61, 0.75), rgba(11, 30, 61, 0.75)), url('Images/about-us-bg.png');">
+          <div class="container-fluid px-4 info-container">
+            <div class="info-eyebrow">Our Story</div>
+            <h2>Built by developers who got tired of searching</h2>
+            <p>We built Dev Blox to be the place Roblox developers actually want to come back to. A community that grows together, guides that stay current, and news you can trust to keep you moving forward.</p>
+          </div>
+        </section>
+
+        <!-- PAGE EXPLAINERS -->
+        <section class="section-explainers" id="explore" style="scroll-margin-top: 5rem;">
+          <div class="container">
+            <div class="section-title">Find your way around</div>
+            <div class="section-subtitle">Explore Your Roblox Development Journey</div>
+
+            <div class="row g-4">
+
+              <div class="col-md-4">
+                <div class="explainer-card border border-3 border-primary h-100">
+                  <div class="explainer-icon d-flex align-items-center justify-content-center">
+                    <img src="Images/Guide icon.png" alt="guides" class="w-100 h-100 rounded-5">
+                  </div>
+                  <h5 class="card-title">Guides</h5>
+                  <p class="pt-3">Step-by-step tutorials on building your first Roblox game!</p>
+                  <a href="Guide Page.html" class="btn btn-outline-dark fw-bold w-100 border-2">Read Guides</a>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="explainer-card border border-3 border-primary h-100">
+                  <div class="explainer-icon d-flex align-items-center justify-content-center">
+                    <img src="Images/Community icon.jpg" alt="community" class="w-100 h-100 rounded-5">
+                  </div>
+                  <h5 class="card-title">Community</h5>
+                  <p class="pt-3">Connect with other developers and share feedback!</p>
+                  <a href="Community.html" class="btn btn-outline-dark fw-bold w-100 border-2">Join Community</a>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="explainer-card border border-3 border-primary h-100">
+                  <div class="explainer-icon d-flex align-items-center justify-content-center">
+                    <img src="Images/News icon.png" alt="news" class="w-100 h-100 rounded-5">
+                  </div>
+                  <h5 class="card-title">News</h5>
+                  <p class="pt-3">Stay connected with Roblox platform updates, annoucements, and events!</p>
+                  <a href="News Letter.html" class="btn btn-outline-dark fw-bold w-100 border-2">Check Them Out</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+            </main> 
+
+      <!-- Footer -->
+      <footer class="bg-navy text-white text-center fw-bold py-2">
+          <span>Dev Blox&trade; Inc. All Rights Reserved</span>
+      </footer>
+
+      <!-- Your own JS (loads last, after the page content exists) -->
+      <script>
+      // --- For account button in the header ---
+
+      //check local stroage if username is saved in "loggedInUser"
+      //get the account button and "account" label using "id" for Javascript interaction
+      (function updateAccountButton() {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        const accountLabel = document.getElementById("accountLabel");
+        const accountBtn = document.getElementById("accountBtn");
+      
+        //stop running javascript if username is not found in local storage
+        if (!accountLabel || !accountBtn) return;
+      
+        //if local stroage find the username, changes "Sign in" text to logged in username
+        //if username not found, leaves the text as "Sign in" and directs to login page if pressed
+        if (loggedInUser) {
+          accountLabel.textContent = loggedInUser;
+        } else {
+          accountBtn.href = "Log in and Log out.html";
+        }
+      })();
+      </script>
+  </body>
+</html>
