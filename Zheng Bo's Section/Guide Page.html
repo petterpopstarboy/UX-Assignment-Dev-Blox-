@@ -1,0 +1,1486 @@
+<!-- Credits -->
+<!-- Made by Zheng Bo -->
+<!-- Linked by Kai Ze and Zheng Bo -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dev Blox - Guides</title>
+
+        <!-- Import Bootstrap -->
+        <script src="
+            https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js
+            "></script>
+        <link href="
+        https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css
+        " rel="stylesheet">
+
+        <!-- Import library to simulate unionOperations -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="blox-devs-doc" style="margin:0; padding:0;">
+        <!-- Top Bar -->
+        <header class="sticky-top">
+            <div class="container-fluid py-2 d-flex justify-content-between align-items-center border-bottom border-primary" style="background-color: white;">
+                <div class="d-flex align-items-center">
+                    <a href="Homepage.html" class="text-decoration-none">
+                        <h2 class="text-primary m-0 me-4">Dev Blox</h2>
+                    </a>
+
+                    <!-- PC Nav buttons, only visible in wider displays ("d-md class determines its range of visibility") -->
+                    <div class="d-none d-md-flex gap-3">
+                        <button class="btn nav-btn" onclick="window.open('Homepage.html', '_self')">Home</button>
+                        <button class="btn nav-btn" onclick="window.open('Guide Page.html', '_self')">Guides</button>
+                        <button class="btn nav-btn" onclick="window.open('Community.html', '_self')">Community</button>
+                        <button class="btn nav-btn" onclick="window.open('News Letter.html', '_self')">News</button>
+                        <button class="btn nav-btn" onclick="window.open('Contact Us.html', '_self')">Contact</button>
+                    </div>
+                </div>
+
+                    <!-- Account button -->
+                    <a href="Profile.html" id="accountBtn" class="btn btn-outline-primary fw-bold d-flex align-items-center border-2">
+                    <span id="accountLabel">Sign in</span>
+                    <img src="Images/user_profile_icon.jpg" alt="Profile" class="rounded-circle ms-2" width="25" height="25">
+                    </a>
+            </div>
+
+            <!-- Narrow Screen Nav Buttons -->
+            <div class="d-flex d-md-none justify-content-center flex-wrap gap-2" style="background-color: rgb(13, 110, 253);">
+                <button class="btn btn-primary btn-sm" onclick="window.open('Homepage.html', '_self')">Home</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Guide Page.html', '_self')">Guides</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Community.html', '_self')">Community</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('News Letter.html', '_self')">News</button>
+                <button class="btn btn-primary btn-sm" onclick="window.open('Contact Us.html', '_self')">Contact</button>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="container-fluid">
+            <div class="row gap-4 px-2">
+                <!-- Sidebar for mobile -->
+                <div class="d-md-none mb-0 mt-2">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+                    ☰ Menu
+                </button>
+                </div>
+
+                <!-- Sidebar for large screens -->
+                <div class="col-2 sidebar d-none d-md-block border-end border-primary">
+
+                    <!-- Shared nav -->
+                    <div class="nav flex-column gap-2 my-2 me-3"  id="sidebar-nav" role="tablist">
+                        <h5 class="mb-0">Basics</h5>
+                        <button class="btn btn-outline-primary active" data-bs-toggle="tab" data-bs-target="#basicControls" type="button">Controls</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#workspace" type="button">Workspace</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#testing" type="button">Testing</button>
+
+                        <h5 class="mb-0 mt-3">Modeling</h5>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#baseparts" type="button">Baseparts</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#union" type="button">Union Operations</button>
+
+                        <h5 class="mb-0 mt-3">Scripting</h5>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#luau" type="button">LuaU</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#scriptTypes" type="button">Script Types</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#variables" type="button">Variables</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#debugging" type="button">Debugging</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#loops" type="button">Loops</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#functions" type="button">Functions</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#events" type="button">Events</button>
+
+                        <h5 class="mb-0 mt-3">Advanced Scripting</h5>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#raycasting" type="button">Raycasting</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#region3" type="button">Region3</button>
+                        <button class="btn btn-outline-primary" data-bs-toggle="tab" data-bs-target="#pathfinding" type="button">Pathfinding</button>
+                    </div>
+                </div>
+
+                <!-- Sidebar as offcanvas for mobile -->
+                <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Navigation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <!-- Reuse the same nav -->
+                        <div id="sidebar-nav-mobile"></div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-12 col-md-8 mt-3">
+                    <div class="tab-content">
+                        <!-- Basics -->
+                        <div class="tab-pane fade show active" id="basicControls">
+                            <div>
+                                <h1>Basic Controls</h1>
+                                <p>
+                                    Understanding the <strong>basic controls</strong> in Roblox Studio is essential for building and navigating your projects. 
+                                    These controls allow you to move the camera, select objects, and manipulate parts within the 3D workspace.
+                                </p>
+                                <img src="Images/Guide_Images/Controls.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a falling keyboard and mouse with a roblox character in the background">
+                                <p>
+                                    Before you continue, adjust your graphics level if you have a lower performing device. (File > Studio Settings > Editor Graphics Level)
+                                </p>
+    
+                                <h2>Camera Controls</h2>
+                                <ul>
+                                    <li><strong>Right Mouse Button:</strong> Hold and drag to rotate the camera view.</li>
+                                    <li><strong>W, A, S, D Keys:</strong> Move the camera forward, left, backward, and right.</li>
+                                    <li><strong>Q / E Keys:</strong> Move the camera down (Q) or up (E).</li>
+                                    <li><strong>Shift:</strong> Hold to move the camera faster.</li>
+                                    <li><strong>Mouse Scroll Wheel:</strong> Zoom the camera in and out.</li>
+                                </ul>
+    
+                                <h2>Object Controls</h2>
+                                <ul>
+                                    <li><strong>Select Tool (1 key):</strong> Click to select parts or models in the workspace.</li>
+                                    <li><strong>Move Tool (2 key):</strong> Allows you to reposition parts along the X, Y, and Z axis.</li>
+                                    <li><strong>Scale Tool (3 key):</strong> Resize parts by dragging handles.</li>
+                                    <li><strong>Rotate Tool (4 key):</strong> Rotate parts around different axes.</li>
+                                    <li><strong>Transfrom Tool (5 key):</strong> The hybrid of Move, Scale and Rotate with an addditional feature to select a plane for movement.</li>
+                                </ul>
+    
+                                <h2>Keyboard Shortcuts</h2>
+                                <ul>
+                                    <li><strong>Ctrl + Z:</strong> Undo the last action.</li>
+                                    <li><strong>Ctrl + Y:</strong> Redo an undone action.</li>
+                                    <li><strong>F:</strong> Focus the camera on the selected object.</li>
+                                    <li><strong>Ctrl + D:</strong> Duplicate the selected object.</li>
+                                    <li><strong>Delete/Backspace:</strong> Remove the selected object from the workspace.</li>
+                                </ul>
+    
+                                <h2>View</h2>
+                                <p>They can be found in the 'view' tab of studio.</p>
+                                <ul>
+                                    <li><strong>Explorer:</strong> Contains all your object locations.</li>
+                                    <li><strong>Properties:</strong> Contains special properties of a currently selected object.</li>
+                                    <li><strong>Toolbox:</strong> Contains all free models that are publicly available. Beware for potential scripts in them as some could contain viruses!</li>
+                                    <li><strong>Output:</strong> Displays all prints and errors from scripts.</li>
+                                </ul>
+    
+                                <h2>Best Practices</h2>
+                                <ul>
+                                    <li>Use the <strong>F key</strong> often to quickly center the camera on your work.</li>
+                                    <li>Keep one hand on the mouse and the other on WASD keys for efficient navigation.</li>
+                                    <li>Learn keyboard shortcuts to speed up your workflow.</li>
+                                    <li>Anchor parts when building static structures to prevent unwanted movement.</li>
+                                </ul>
+    
+                                <div class="note">
+                                    <span><strong>Note:</strong> You can change your keybinds for a more preferred set-up to enhance your effeciency.</span></br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="workspace">
+                            <div>
+                                <h1>Workspace</h1>
+                                <p>
+                                    The <strong>Workspace</strong> is the root container in Roblox Studio where all 3D objects
+                                    that appear in the game world are stored. It acts as the main environment where parts,
+                                    models, and scripts interact.
+                                </p>
+                                <img src="Images/Guide_Images/Building.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a two roblox characters having a conversation in a constrution site">
+
+                                <h2>Key Features</h2>
+                                <ul>
+                                    <li><strong>Parts and Models:</strong> All physical objects in your game are placed inside Workspace.</li>
+                                    <li><strong>Scripts:</strong> Scripts can reference Workspace to access or modify objects.</li>
+                                    <li><strong>Visibility:</strong> Workspace is accessible to both the server and the client.</li>
+                                </ul>
+
+                                <h2>Server vs Client</h2>
+                                <img src="Images/Guide_Images/Server_Client.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a server on the left and a laptop on the right">
+                                <p>
+                                    Roblox uses a client-server model. The Workspace exists on both sides:
+                                </p>
+                                <ul>
+                                    <li><strong>Server:</strong> Handles game logic, physics, and security.</li>
+                                    <li><strong>Client:</strong> Handles rendering and user interface.</li>
+                                </ul>
+                                <p>
+                                    Communication between server and client is done using <code>RemoteEvents</code> and <code>RemoteFunctions</code>.
+                                </p>
+
+                                <h2>Best Practices</h2>
+                                <ul>
+                                    <li>Organize objects into folders for clarity (e.g., “Enemies”, “Items”).</li>
+                                    <li>Use <code>CollectionService</code> tags to manage groups of objects.</li>
+                                    <li>Keep Workspace clean by moving non-visual data into <code>ReplicatedStorage</code> or <code>ServerStorage</code>.</li>
+                                </ul>
+
+                                <div class="note">
+                                    <strong>Note:</strong> Certain objects such as GUI and Sounds do not rely on workspace to work.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="testing">
+                            <div>
+                                <h1>Testing</h1>
+                                <p>
+                                    Before publishing you games, every game needs to be tested for any issues to ensure everything works as intended. No game can be made without testing.
+                                </p>
+                                <img src="Images/Guide_Images/Testing.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of two roblox character. The left holding a megaphone while sitting on chair while the right is taking down notes">
+                                <p>
+                                    To start testing, simply navigate to the top left of your screen. There should be a text saying "Test", with a blue play button, pause button, a red end button and a "PC" icon to switch between server or client view.
+                                </p>
+    
+                                <h2>Usage</h2>
+                                <ul>
+                                    <li><strong>Scripting:</strong> Ensure that codes correctly controls the game environment.</li>
+                                    <li><strong>Physics Interaction:</strong> Test how a physics part interact around itself.</li>
+                                </ul>
+    
+                                <h2>Physics</h2>
+                                <p>Since roblox is also a physics engine, you can apply many physical mechanics into the environment. There are many types of properties that determines a part's interaction</p>
+                                <ul>
+                                    <li><strong>Mass:</strong> Determines the mass of the part. Changes with material and volume. Can also be altered with "Massless" property and "Density" in "CustomPhysicalProperties</li>
+                                    <li><strong>Friction:</strong> Found in "CustomPhysicalProperties". Determines part's resistance force when sliding.</li>
+                                    <li><strong>Elasticity:</strong> Found in "CustomPhysicalProperties". Determines how much a part bounces.</li>
+                                    <li><strong>Gravity:</strong> A property found in the "Workspace". Determines all part's gravitational force.</li>
+                                </ul>
+    
+                                <h2>Best Practices</h2>
+                                <ul>
+                                    <li>When writing scripts, make sure to test the code once in a while every few lines.</li>
+                                    <li>Keep your "Output" open whenever you are testing scripts to spot issues.</li>
+                                </ul>
+    
+                                <div class="note">
+                                    <span><strong>Note:</strong> Check if all parts in a model is unanchored to allow physics to affect them.</span></br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modeling -->
+                        <div class="tab-pane fade" id="baseparts">
+                            <div>
+                                <h1>Baseparts</h1>
+                                <p>
+                                    <strong>Baseparts</strong> are the fundamental building blocks for modeling. 
+                                    They represent physical objects that can be placed in the game world and interacted with by players, scripts, and physics.
+                                </p>
+
+                                <img src="Images/Guide_Images/Baseparts.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a green wedge, concrete block, metal sphere, gold marble pyramid, and a red forcefield cyclinder">
+                                <h2>Types of Baseparts</h2>
+                                <ul>
+                                    <li><strong>Part:</strong> A simple cube or rectangular block, the most common building element.</li>
+                                    <li><strong>Wedge:</strong> A sloped block useful for ramps and angled surfaces.</li>
+                                    <li><strong>Cylinder:</strong> A round block often used for pillars or wheels.</li>
+                                    <li><strong>Ball:</strong> A spherical part, useful for round objects or physics experiments.</li>
+                                    <li><strong>Mesh:</strong> A unique part that uses an exported mesh from other modeling software. They cannot be union!</li>
+                                </ul>
+
+                                <h2>Common Properties</h2>
+                                <ul>
+                                    <li><strong>Colour:</strong> Simply changes the colour. Unions need to have "base colour" enabled to fully change its colour.</li>
+                                    <li><strong>Cast Shadow:</strong> Allows shadow to be casted by the object. Invisible objects does not cast shadows unless it is set to a ridiculous amount (Studio Bug).</li>
+                                    <li><strong>Transparency:</strong> Changes the transparency of the object.</li>
+                                    <li><strong>Anchored:</strong> Ensures object cannot be moved physically. Can change its position via scripts</script>.</li>
+                                    <li><strong>Locked:</strong> Cannot be selected by user's cursor but can still block cursor selection. Mainly used in studio mode.</script>.</li>
+                                </ul>
+                                <ul>
+                                    <li><strong>Can Collide:</strong> Controls if object/players can pass through it.</li>
+                                    <li><strong>Can Touch:</strong> Allows object to detect if it has been 'touched' by any baseparts. Works with 'Can Collide' disabled and used for script events.</li>
+                                    <li><strong>Can Query:</strong> Determine if raycasts can pass through them.</li>
+                                </ul>
+
+                                <h2>Models</h2>
+                                <p>Models is a parent grouping used to contain multiple instances of baseparts and special objects</p>
+                                <p>They can contain</p>
+                                <ul>
+                                    <li><strong>RootPart:</strong> Any object that is chosen to be a primary part (Found in the Model's properties). This changes the pivot point of the model and they are highlighted in gray.</li>
+                                    <li><strong>Humanoid:</strong> A special object that gives a model humanoid properties. This is how a player is created.</li>
+                                </ul>
+
+                                <p>The image below shows an example of a model character, with their rootpart being highlighted in gray.</p>
+                                <img src="Images/Guide_Images/RootPart.png" class="img-fluid w-75 rounded mb-4 mx-auto d-block" alt="Image of a roblox character being highlighted with his torso highlighted in a gray box. Axis points are seen at his pivot">
+                                <h2>Best Practices</h2>
+                                <ul>
+                                    <li>Use <code>Anchored</code> for static structures like buildings.</li>
+                                    <li>Group parts into <strong>Models</strong> for easier manipulation.</li>
+                                    <li>Apply <code>Materials</code> (wood, metal, glass) for realistic appearance.</li>
+                                    <li>Keep part counts optimized to avoid performance issues in large games.</li>
+                                </ul>
+
+                                <div class="note">
+                                    <strong>Note:</strong> Baseparts are the core of Roblox building. Every complex model or structure 
+                                    ultimately relies on Baseparts as its foundation.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="union">
+                            <div>
+                                <h1>Union Operation</h1>
+                                <p>
+                                    The most important and customisable basepart in roblox studio. To combine two parts together into one without grouping them, you can use union operations to combine all their properties into one. Note that colours can be different even when unionioned except materials
+                                </p>
+                                <img src="Images/Guide_Images/Unions.png" class="img-fluid w-90 rounded mb-4" alt="Image of multiple union part. A gray pile of blocks, a green cylinder with a slant tip, a red sphere with a hole through it, and a yellow triangle">
+
+                                <h2>Regular Unions</h2>
+                                <p>
+                                    A <strong>Union</strong> combines two or more parts into a single basepart. This is useful for creating complex shapes 
+                                    without grouping. Unlike models, unions merge geometry into one object, which can reduce part count and improve performance. 
+                                    However, note that while colours can differ, materials are unified across the union.
+                                </p>
+                                <p>You can union parts using "CTRL + Shift + G". To seperate or undo and union, do "CTRL + Shift + U"</p>
+
+                                <canvas id="unionCanvas" width="400" height="300" style="border: 2px solid black; border-radius: 15px;"></canvas>
+                                <div class="mb-5">
+                                    <button class="btn btn-outline-secondary" onclick="spawnRect('union')">Spawn Rectangle</button>
+                                    <button class="btn btn-outline-secondary" onclick="spawnCircle('union')">Spawn Circle</button>
+                                    <button class="btn btn-outline-success" onclick="unionSelected('union')">Union</button>
+                                    <button class="btn btn-outline-danger" onclick="resetCanvas('union')">Reset</button>
+                                </div>
+
+                                <h2>Negative Unions</h2>
+                                <p>
+                                    A <strong>Negative Union</strong> allows you to subtract one part from another. By toggling a part to negative, 
+                                    it acts like a "cutter" that removes geometry from the positive part. This is especially useful for hollowing out 
+                                    shapes, carving details, or creating openings. 
+                                </p>
+                                <img src="Images/Guide_Images/Negative.png" class="img-fluid w-90 rounded mb-4" alt="Image of a wall with a negative part on the left and an union result on the right">
+
+                                <p>You can toggle parts between positive and negative using "CTRL + Shift + N". To cut out parts, simply union a positive part with a negative part.</p>
+
+                                <canvas id="negCanvas" width="400" height="300" style="border: 2px solid black; border-radius: 15px;"></canvas>
+                                <div class="mb-5">
+                                    <button class="btn btn-outline-secondary" onclick="spawnRect('neg')">Spawn Rectangle</button>
+                                    <button class="btn btn-outline-secondary" onclick="spawnCircle('neg')">Spawn Circle</button>
+                                    <button class="btn btn-outline-success" onclick="unionSelected('neg')">Union</button>
+                                    <button class="btn btn-outline-black" onclick="toggleNegative('neg')">Toggle Pos/Neg</button>
+                                    <button class="btn btn-outline-danger" onclick="resetCanvas('neg')">Reset</button>
+                                </div>
+
+                                <h2>Intersect Unions</h2>
+                                <p>
+                                    The <strong>Intersect</strong> operation keeps only the overlapping volume of selected parts. If two parts share 
+                                    a common area, that intersection becomes the new shape. If no intersection exists, you would receive an error (AKA zero results). This is 
+                                    useful for precise modeling, trimming shapes, or creating complex cutouts. 
+                                </p>
+                                <img src="Images/Guide_Images/Intersect.png" class="img-fluid w-90 rounded mb-4" alt="Image of a wall with a overlapping cylinder on the left and an union result on the right">
+
+                                <p>To intersect two parts, overlap two positive parts then "CTRL + Shift + I".</p>
+
+                                <canvas id="interCanvas" width="400" height="300" style="border: 2px solid black; border-radius: 15px;"></canvas>
+                                <div class="mb-5">
+                                    <button class="btn btn-outline-secondary" onclick="spawnRect('inter')">Spawn Rectangle</button>
+                                    <button class="btn btn-outline-secondary" onclick="spawnCircle('inter')">Spawn Circle</button>
+                                    <button class="btn btn-outline-purple" onclick="intersectSelected('inter')">Intersect</button>
+                                    <button class="btn btn-outline-danger" onclick="resetCanvas('inter')">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scripting -->
+                        <div class="tab-pane fade" id="luau">
+                            <div>
+                                <h1>LuaU</h1>
+                                <p>
+                                <strong>LuaU</strong> is Roblox's custom version of the Lua programming language. 
+                                It is designed for performance, safety, and scalability in Roblox games. 
+                                LuaU extends standard Lua with new features and optimizations while keeping the language familiar.
+                                </p>
+                                <div class="d-flex flex-row justify-content-center gap-5 mt-4">
+                                    <img src="Images/Guide_Images/Lua.webp" 
+                                        class="img-fluid w-25 rounded" 
+                                        alt="Lua logo">
+
+                                    <img src="Images/Guide_Images/Luau.png" 
+                                        class="img-fluid w-25 rounded" 
+                                        alt="Luau logo">
+                                </div>
+
+
+
+                                <h2>Key Features</h2>
+                                <ul>
+                                <li><strong>Performance:</strong> LuaU is optimized for Roblox's engine, running faster than standard Lua.</li>
+                                <li><strong>Type Checking:</strong> Supports optional type annotations for safer code.</li>
+                                <li><strong>Security:</strong> Sandboxed environment prevents unsafe operations.</li>
+                                <li><strong>Compatibility:</strong> Most Lua 5.1 syntax works, with added Roblox-specific APIs.</li>
+                                </ul>
+
+                                <h2>LuaU Syntax</h2>
+                                <pre>
+                                    <code>
+-- Variables
+local playerName: string = "David"
+
+-- Functions
+local function greet(name: string): string
+    return "Hello, " .. name
+end
+
+print(greet(playerName))
+                                    </code>
+                                </pre>
+
+                                <h2>Differences from Standard Lua</h2>
+                                <ul>
+                                <li><strong>Type Annotations:</strong> LuaU allows specifying types (<code>string</code>, <code>number</code>, <code>boolean</code>, etc.).</li>
+                                <li><strong>Strict Mode:</strong> Helps catch errors early by enforcing type rules.</li>
+                                <li><strong>Improved Performance:</strong> Optimized bytecode and JIT compilation for Roblox.</li>
+                                <li><strong>Roblox APIs:</strong> Access to objects like <code>Workspace</code>, <code>Players</code>, and <code>ReplicatedStorage</code>.</li>
+                                </ul>
+
+                                <h3>Script Example</h3>
+                                <pre>
+                                    <code>
+-- Script to give points when a player touches a part
+local part = workspace.Part
+
+part.Touched:Connect(function(hit)
+    local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+    if player then
+        local leaderstats = player:FindFirstChild("leaderstats")
+        if leaderstats then
+            leaderstats.Points.Value += 10
+        end
+    end
+end)
+                                    </code>
+                                </pre>
+
+                                <div class="note">
+                                <strong>Note:</strong> LuaU is continuously updated by Roblox. Always check the official 
+                                <a href="https://create.roblox.com/docs/reference/engine" target="_blank">Roblox Developer Hub</a> 
+                                for the latest features and changes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="scriptTypes">
+                            <div>
+                                <h1>Script Types</h1>
+                                <p>
+                                    Roblox Studio provides three main types of scripts, each serving a different purpose in game development:
+                                </p>
+                                <img src="Images/Guide_Images/Script_Types.png" class="img-fluid w-75 rounded mb-4 mx-auto d-block" alt="Image of the three script seen in studio. Server, Client, Module">
+                                <ul>
+                                    <li><strong>Server Script:</strong> Executes code on the server, handling core game logic and multiplayer synchronization.</li>
+                                    <li><strong>Local Script:</strong> Runs on the client, controlling user interfaces and visual effects.</li>
+                                    <li><strong>Module Script:</strong> Stores reusable functions and data, acting as a shared library for other scripts.</li>
+                                </ul>
+
+                                <h2>Server Scripts</h2>
+                                <p>
+                                    Server Scripts are the backbone of multiplayer games. They manage gameplay logic, physics, and security. 
+                                    Because they run on the server, changes made here are authoritative and replicated to all players.
+                                </p>
+                                <h3>Example</h3>
+                                <p>
+                                    This Script changes the colour of the part to red for both the server and all clients
+                                </p>
+                                <pre>
+                                    <code>
+-- Place this in ServerScriptService or inside the part
+local part = workspace.Part -- replace "Part" with your part's name
+
+-- Change the part's color to red
+part.Color = Color3.fromRGB(255, 0, 0)
+                                    </code>
+                                </pre>
+
+                                <h2>Local Scripts</h2>
+                                <p>
+                                    Local Scripts run on individual clients. They are used for GUI interactions, camera control, and visual effects. 
+                                    They cannot be placed in Workspace or ServerStorage; instead, they must be inside client containers such as 
+                                    <code>StarterPlayerScripts</code>, <code>StarterCharacterScripts</code>, or <code>PlayerGui</code>.
+                                </p>
+                                <p>
+                                    Since Local Scripts have limited authority, they should never be used to determine critical game outcomes. 
+                                    For server-client communication, use <code>RemoteEvents</code> or <code>RemoteFunctions</code>.
+                                </p>
+                                <h3>Example</h3>
+                                <p>
+                                    This Local Script changes the colour of the part to red for only the running client
+                                </p>
+                                <pre>
+                                    <code>
+-- Place this in StarterPlayerScripts or StarterGui
+local part = workspace.Part -- replace "Part" with your part's name
+
+-- Change the part's color to blue (client-side only)
+part.Color = Color3.fromRGB(0, 0, 255)
+                                    </code>
+                                </pre>
+
+                                <h2>Module Scripts</h2>
+                                <p>
+                                    Module Scripts act as libraries of reusable code and data. They help reduce repetition by allowing developers 
+                                    to define functions once and reuse them across multiple scripts. 
+                                </p>
+                                <p>
+                                    Both Server Scripts and Local Scripts can access Module Scripts using the <code>require()</code> function.
+                                </p>
+                                <h3>Example</h3>
+                                <p>
+                                    This Local Script changes the colour of the part to red for only the running client
+                                </p>
+                                <pre>
+                                    <code>
+-- ModuleScript placed inside ReplicatedStorage
+local DataModule = {}
+
+DataModule.Items = {
+    Sword = {Damage = 25},
+    Shield = {Defense = 40}
+}
+
+function DataModule.GetItem(name)
+    return DataModule.Items[name]
+end
+
+return DataModule
+
+-- In another script
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local DataModule = require(ReplicatedStorage:WaitForChild("DataModule"))
+
+local sword = DataModule.GetItem("Sword")
+print(sword.Damage) -- prints 25
+                                    </code>
+                                </pre>
+
+                                <h2>Best Practices</h2>
+                                <ul>
+                                    <li>Use Server Scripts for core gameplay logic and security-sensitive operations.</li>
+                                    <li>Restrict Local Scripts to client-side tasks such as UI and effects.</li>
+                                    <li>Organize reusable code into Module Scripts to avoid duplication.</li>
+                                    <li>Always use <code>RemoteEvents</code> and <code>RemoteFunctions</code> for safe server-client communication.</li>
+                                </ul>
+
+                                <div class="note">
+                                    <strong>Note:</strong> Understanding the role of each script type is crucial. 
+                                    Misusing Local Scripts for server logic or failing to separate reusable code into Module Scripts can lead to 
+                                    performance issues and security vulnerabilities.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="variables">
+                            <div>
+                                <h1>Variables</h1>
+                                <p>Variables are simple named containers that stores information so that they can be reused later in a later code. They can contain information such as integers, strings, booleans, lists and dictionary.</p>
+                                <img src="Images/Guide_Images/Variables.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a robloxian releasing all the box's contents with 'list' labeled on it">
+
+                                <h3>Example</h3>
+                                <p>Below is a code example of variables. <strong>Do remember to open your output view!</strong></p>
+                                <pre>
+                                    <code>
+-- String variable
+local playerName = "John Doe"
+
+-- Number variables
+local playerAge = 17
+local coins = 250
+
+-- Boolean variable
+local isVIP = true
+
+-- Table variable (like a list)
+local inventory = {"Sword", "Shield", "Potion"}
+
+-- Print them out
+print("Player Name: " .. playerName)
+print("Age: " .. playerAge)
+print("Coins: " .. coins)
+print("VIP Status: " .. tostring(isVIP))
+print("Inventory: " .. table.concat(inventory, ", "))
+                                    </code>
+                                </pre>
+
+                                <h1>Changeable</h1>
+                                <p>Variables are also changeable. This can be used to update a variable to pass down updated information for other codes. You can either replace a variable or add onto a variable</p>
+
+                                <pre>
+                                    <code>
+-- String variable--
+local coins = 10
+local playerName = "John Doe"
+
+print("Starting coins: " .. coins)
+print("Player name: " .. playerName)
+
+-- Change the values
+coins = 25
+playerName = "James"
+
+print("Updated coins: " .. coins)
+print("Updated player name: " .. playerName)
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="debugging">
+                            <div>
+                                <h1>Debugging</h1>
+                                <p>
+                                    In scripting, bugs are almost always garanteed to happen. Some can be easily detected via the <strong>output</strong> tab with an error. However, value bugs with in correct formats requires heavy testing to be found
+                                </p>
+                                <img src="Images/Guide_Images/Debugging.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a roblox character using bug spray on a laptop full of 'bugs'">
+
+                                <p>
+                                    The output tab can be found in the middle top of your sceen under the "Script" tab
+                                </p>
+
+                                <h2>Types of Bugs</h2>
+                                <ul>
+                                    <li><strong>Strings:</strong> String formating is incorrect.</li>
+                                    <li><strong>Numbers:</strong> Number equation mistakes.</li>
+                                    <li><strong>Vectors:</strong> Using incorrect format when setting vectors.</li>
+                                    <li><strong>Enums:</strong> Workspace is accessible to both the server and the client.</li>
+                                    <li><strong>Physics:</strong> Hardests to fix in studio. Requires other code to negate the issue. Harder to find as it requires heavy play test.</li>
+                                </ul>
+
+                                <h2>Ways to find</h2>
+                                <ul>
+                                    <li><strong>Printing:</strong> Using prints to return variables allows you to ensure that a code outputs an expected value.</li>
+                                    <li><strong>Errors:</strong> Easily found inside <strong>output</strong> tab, highlighted in red.</li>
+                                    <li><strong>Traceback:</strong> Traces back to the source of a calculation if functions are used.</li>
+                                    <li><strong>Heavy Playtesting:</strong> Toughest and most exhausting. Requires precise logical understanding to find coding loop holes or physic bugs</li>
+                                </ul>
+
+                                <div class="note">
+                                    <strong>Note:</strong> Remember to always structure your scripts, think about its interaction with other scripts and always test the same code once in a while to spot issues earlier.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="loops">
+                            <div>
+                                <h1>Loops</h1>
+                                <p>
+                                    The most important structure in every single game. They are important to keep all games to keep going. Without loops, everything would only run once.  
+                                </p>
+                                <img src="Images/Guide_Images/Loops.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a roblox character walking in a loop">
+
+                                <h2>Usage</h2>
+                                <p>
+                                    There are many ways to use loops in many game features. These can be
+                                </p>
+                                <ul>
+                                    <li>Self-repeating games</li>
+                                    <li>Countdowns</li>
+                                    <li>Moving parts</li>
+                                    <li>Constant checking</li>
+                                    <li>NPC behaviours</li>
+                                </ul>
+
+                                <h2>Types of loops</h2>
+                                <ul>
+                                    <li>While loop</li>
+                                    <li>Repeat until</li>
+                                    <li>For loop</li>
+                                    <li>For ... in loop</li>
+                                    <li>While true do</li>
+                                </ul>
+
+                                <div class="note mb-3">
+                                    <strong>Note:</strong> Before running a loop, ensure that <code>task.wait()</code> is used inside the loop to ensure that studio does not crash! This is especially more important in <code>while true do</code> loops.
+                                </div>
+
+                                <h3>While loop</h3>
+                                <pre>
+                                    <code>
+-- Checks for condition before running the code                        
+local count = 0
+while count < 5 do
+    print("Count is", count)
+    count = count + 1
+end
+                                    </code>
+                                </pre>
+
+                                <h3>Repeat until</h3>
+                                <pre>
+                                    <code>
+-- Checks for condition after running the code
+local count = 0
+repeat
+    print("Count is", count)
+    count = count + 1
+until count >= 5
+                                    </code>
+                                </pre>
+
+                                <h3>For loop</h3>
+                                <pre>
+                                    <code>
+for i = 1, 5 do
+    print("Iteration", i)
+end
+
+-- You can also step by a custom increment:
+for i = 10, 0, -2 do
+    print("Countdown:", i)
+end
+                                    </code>
+                                </pre>
+
+                                <h3>For ... loop</h3>
+                                <pre>
+                                    <code>
+local fruits = {"Apple", "Banana", "Cherry"}
+for index, fruit in ipairs(fruits) do
+    print(index, fruit)
+end
+                                    </code>
+                                </pre>
+
+                                <h3>While true do</h3>
+                                <pre>
+                                    <code>
+while true do
+    print("Looping every second")
+    wait(1)
+end
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="functions">
+                            <div>
+                                <h1>Functions</h1>
+                                <p>
+                                    To ensure that your coding structure remains as neat as possible, you can use functions as a way to reduce code repetition.
+                                </p>
+                                <img src="Images/Guide_Images/Functions_Events.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a roblox character using a remote control to open a door">
+
+                                <h2>Usage</h2>
+                                <p>
+                                    Instead of repeating the same exact code over again, you can use functions to reuse the same code again. Functions also support for reusing of code logic with differing variables.
+                                </p>
+
+                                <h3>Example</h3>
+                                <pre>
+                                    <code>
+-- Define a function
+local function greetPlayer(name)
+    print("Hello, " .. name .. "! Welcome to the game.")
+end
+
+-- Call the function
+greetPlayer("John")
+greetPlayer("Alex")
+                                    </code>
+                                </pre>
+
+                                <h2 class="mt-5">With Module Script</h2>
+                                <p>
+                                    Functions can also be stored inside module codes so that other scripts can reuse that exact function, just like an API.
+                                </p>
+
+                                <h3>Example</h3>
+                                <p>
+                                    For the test below, ensure you have a module script called <code>MyModule</code> placed inside <code>ReplicatedStorage</code>
+                                </p>
+                                <pre>
+                                    <code>
+-- Module Script                                        
+local MyModule = {}
+
+function MyModule.Greet(name)
+    return "Hello, " .. name .. "!"
+end
+
+return MyModule
+                                    </code>
+                                </pre>
+                                <pre>
+                                    <code>
+-- Script                                        
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local MyModule = require(ReplicatedStorage:WaitForChild("MyModule"))
+
+-- Call the function from the module
+local message = MyModule.Greet("Alex")
+print(message)
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="events">
+                            <div>
+                                <h1>Events</h1>
+                                <p>
+                                    To allow client-server communication, events can be used to whitelist a certain amount of data to be sent to the server for decision making.
+                                </p>
+                                <img src="Images/Guide_Images/Server_Client_Communication.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a roblox character connecting to a server with a laptop">
+
+                                <h2>Types of events</h2>
+                                <p>
+                                    There are only two types of events and they can be either bindable or remote
+                                </p>
+                                <ul>
+                                    <li><strong>Regular Events:</strong> Simply sends a data signal over to its listeners.</li>
+                                    <li><strong>Invoke Functions:</strong> Similar to events but sender expects a return value.</li>
+                                </ul>
+
+                                <h2>Bindable (Server - Server Only)</h2>
+                                <h3 class="ms-4">Events</h3>
+                                <pre>
+                                    <code>
+-- Sender
+BindableEvent:Fire("Hello World")
+
+-- Listener
+BindableEvent.Event:Connect(function(message)
+    print("Got BindableEvent:", message)
+end)
+                                    </code>
+                                </pre>
+                                <h3 class="ms-4">Functions</h3>
+                                <pre>
+                                    <code>
+-- Sender
+local result = BindableFunction:Invoke(10, 20)
+print("Result:", result)
+
+-- Listener
+BindableFunction.OnInvoke = function(x, y)
+    return x + y
+end
+                                    </code>
+                                </pre>
+
+
+
+                                <h2>Remote (Client - Server)</h2>
+                                <h3 class="ms-4">Events Client to Server</h3>
+                                <pre>
+                                    <code>
+-- Client Sender
+RemoteEvent:FireServer("Hello from Client")
+
+-- Server Listener
+RemoteEvent.OnServerEvent:Connect(function(player, message)
+    print(player.Name .. " sent:", message)
+end)
+
+                                    </code>
+                                </pre>
+                                <h3 class="ms-4">Events Server to Client</h3>
+                                <pre>
+                                    <code>
+-- Server Sender
+RemoteEvent:FireClient(player, "Hello back!") -- Fires To Specific Player Client
+RemoteEvent:FireAllClients("Broadcast message") -- Fires To All Player Client
+
+
+-- Client Listener
+RemoteEvent.OnClientEvent:Connect(function(message)
+    print("Client received:", message)
+end)
+
+                                    </code>
+                                </pre>
+
+                                <h3 class="ms-4">Functions (Client to Server)</h3>
+                                <pre>
+                                    <code>
+-- Client Sender
+local result = RemoteFunction:InvokeServer(5, 6)
+print("Client got:", result)
+
+-- Server Listener
+RemoteFunction.OnServerInvoke = function(player, x, y)
+    return x * y
+end
+                                    </code>
+                                </pre>
+                                <h3 class="ms-4">Functions (Server to Client)</h3>
+                                <pre>
+                                    <code>
+-- Server Sender
+local result = RemoteFunction:InvokeClient(player, "Ping")
+print("Server got:", result)
+
+-- Client Listener
+RemoteFunction.OnClientInvoke = function(message)
+    return "Pong to: " .. message
+end
+                                    </code>
+                                </pre>
+
+                                <div class="note mb-3">
+                                    <strong>Note:</strong> If you want to communicate to another player client directly, you would need to remotely signal to a server listener. Once that server receives your client message, it would remotely send to the targeted player (If they have a listener).
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Scripting -->
+                        <div class="tab-pane fade" id="raycasting">
+                            <div>
+                                <h1>Raycasting</h1>
+                                <p>
+                                    Raycasts are one of the most essential instance in games. You can imagine it as a instant laser that detects collisions.
+                                </p>
+                                <p>
+                                    It requires a start point and a direction. You cannot simply just state an endpoint position.
+                                </p>
+                                <img src="Images/Guide_Images/Raycast.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of lasers representing raycast. The green laser reaches the end while the red is blocked by an obstacle">
+
+                                <h2>Usage</h2>
+                                <ul>
+                                    <li><strong>Can See:</strong> Allows a code to determine a endpoint can be directly seen by an origin point.</li>
+                                    <li><strong>Detection:</strong> Detects what basepart object is in the way when moving from start to end.</li>
+                                    <li><strong>Projectiles:</strong> Used in "Physics" based projectiles by continuously creating short raycast per hop until it hits something.</li>
+                                </ul>
+
+                                <h3>Example</h3>
+                                <pre>
+                                    <code>
+-- Assume you have two parts in Workspace: PartA and PartB
+local partA = workspace.PartA
+local partB = workspace.PartB
+
+-- Define raycast parameters
+local raycastParams = RaycastParams.new()
+raycastParams.FilterType = Enum.RaycastFilterType.Exclude
+raycastParams.FilterDescendantsInstances = {partA} -- ignore the source part itself
+
+-- Calculate direction from PartA to PartB
+local origin = partA.Position
+local direction = (partB.Position - partA.Position)
+
+-- Perform raycast
+local result = workspace:Raycast(origin, direction, raycastParams)
+
+-- Handle result
+if result then
+    print("Ray hit:", result.Instance.Name)
+    if result.Instance == partB then
+        print("Direct line of sight to PartB!")
+    else
+        print("Blocked by:", result.Instance.Name)
+    end
+else
+    print("Ray did not hit anything.")
+end
+                                    </code>
+                                </pre>
+                                <div class="note">
+                                    <strong>Note:</strong> The code above runs only once. To make it run continously, put the code that handles casting and conditions into a <code>while true do</code> loop with a <code>task.wait()</code>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="region3">
+                            <div>
+                                <h1>Region3</h1>
+                                <p>
+                                    Making region based interaction can be made via the use of region3. Region3 helps to detect the types of objects within itself.
+                                </p>
+                                <img src="Images/Guide_Images/Region3.png" class="img-fluid w-75 rounded mb-4 mx-auto d-block" alt="Image of a roblox character lying down on four different regions of a terrain">
+
+                                <h2>Usage</h2>
+                                <p>
+                                    Region3 can be used for multiple features.
+                                </p>
+                                <ul>
+                                    <li>Player zone detection</li>
+                                    <li>Environment based music</li>
+                                    <li>King of the hills</li>
+                                    <li>Item detection in an area</li>
+                                </ul>
+
+                                <h3>Example</h3>
+                                <pre>
+                                    <code>
+-- Define the corners of the region
+local minCorner = Vector3.new(0, 0, 0)      -- lower corner
+local maxCorner = Vector3.new(20, 10, 20)   -- upper corner
+
+-- Create the Region3
+local region = Region3.new(minCorner, maxCorner)
+
+-- Expand to grid (optional, useful for terrain operations)
+region = region:ExpandToGrid(4)
+
+-- Find parts inside the region
+local parts = workspace:FindPartsInRegion3(region, nil, math.huge)
+
+-- Loop through results
+for _, part in ipairs(parts) do
+    print("Found part:", part.Name)
+
+    -- Check if part belongs to a player character
+    local character = part.Parent
+    if character and character:FindFirstChild("Humanoid") then
+        print("Player detected:", character.Name)
+    end
+end
+                                    </code>
+                                </pre>
+
+                                <h2>Issues</h2>
+                                <p>
+                                    Event though Region3 is useful, it has its own problems.
+                                </p>
+                                <ul>
+                                        <li><strong>Immutable: </strong>Region3 cannot be re-edited after creation</li>
+                                        <li><strong>Axis-aligned only: </strong>Region3 cannot rotate, only axis-aligned boxes.</li>
+                                        <li><strong>Broad detection: </strong>It detects <strong>all</strong> parts in the region so you would need to manually filter the mout yourself. But its still not great for performance as it still detects parts that you don't need.</li>
+                                    </ul>
+
+                                <h2>Replacement</h2>
+                                <p>
+                                    Instead of Region3, you can instead use <code>GetPartBoundsInBox</code> with <code>OverlapParams</code> to only detect certain parts in a folder/model. This can help with performance if the zone is located in a very decorated environment
+                                </p>
+                                <pre>
+                                    <code>
+-- Zone is listed as a Block Basepart                                        
+local zonePart = workspace.Zone
+local params = OverlapParams.new()
+params.FilterType = Enum.RaycastFilterType.Whitelist
+params.FilterDescendantsInstances = {workspace.Folder} -- Only Children of "Folder" can be detected
+
+-- This code runs only once, Use a while loop for continuos check
+local parts = workspace:GetPartBoundsInBox(zonePart.CFrame, zonePart.Size, params)
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pathfinding">
+                            <div>
+                                 <h1>Pathfinding</h1>
+                                <p>
+                                    NPCs in roblox are dumb. That is unless you give them pathfinding! This is extremely important for any games that rely on interactive NPCs but also the most difficult to implement.
+                                </p>
+                                <img src="Images/Guide_Images/Pathfinding.png" class="img-fluid w-90 rounded mb-4 mx-auto d-block" alt="Image of a roblox character teaching a robot with a map">
+
+                                <h2>Usage</h2>
+                                <p>
+                                    Pathfinding can be used for many features, But mainly NPC behaviour
+                                </p>
+                                <ul>
+                                    <li>Smart NPC behaviour</li>
+                                    <li>Player Guiding Assistance</li>
+                                    <li>Navigation Hints</li>
+                                </ul>
+
+                                <h2>Basics</h2>
+                                <p>
+                                    Before knowing how to create a path, we need to know how to allow npcs to move to a target. The script below simply guides the NPC directly to a target position in a straight line.
+                                </p>
+                                <pre>
+                                    <code>
+-- Script inside a model of a chosen NPC                                        
+local npc = script.Parent
+local humanoid = npc:WaitForChild("Humanoid")
+local hrp = npc:WaitForChild("HumanoidRootPart")
+
+-- Replace with your goal object (e.g., a Part named "Goal")
+local goal = workspace:WaitForChild("Goal")
+
+-- Loop to keep moving toward the goal
+while task.wait(0.1) do
+    if goal and goal:IsA("BasePart") then
+        -- Move directly toward the goal position
+        humanoid:MoveTo(goal.Position)
+    end
+end
+                                    </code>
+                                </pre>
+
+                                <h2>Pathfinding Service</h2>
+                                <p>
+                                    <code>PathfindingService</code> is one of the accessible service to enable this feature. For now we wil run a code that executes once on how pathfinding nodes are created.
+                                </p>
+                                <pre>
+                                    <code>
+-- Services
+local PathfindingService = game:GetService("PathfindingService")
+
+-- Define start and target positions
+local startPos = Vector3.new(0, 5, 0)   -- arbitrary start point
+local target = workspace:WaitForChild("Goal") -- a Part named "Goal"
+
+-- Create path object
+-- Do note that the parameters affects how the path is calculated.
+-- An NPC with low jump power will attempt to jump over a high wall if the parameter states the jump power to be higher than the npc's capability
+local path = PathfindingService:CreatePath({
+    AgentRadius = 2, -- Determines how minimum distance node has to be from an obstacle
+    AgentHeight = 5, -- Determines if the agent can fit under ceilings or through doorways
+    AgentCanJump = true, -- Determines if the NPC is allowed to jump. Compliments "Agent Height"
+    AgentJumpHeight = 10,   -- Determines the maximum vertical distance the agent can jump up when computing paths
+    AgentMaxSlope = 45, -- Determines the maximum angle a path must be to be considered passable by node
+})
+
+-- Compute path
+path:ComputeAsync(startPos, target.Position)
+
+-- Visualize waypoints
+local waypoints = path:GetWaypoints()
+for i, waypoint in ipairs(waypoints) do
+    local marker = Instance.new("Part")
+    marker.Size = Vector3.new(1, 1, 1)
+    marker.Shape = Enum.PartType.Ball
+    marker.Material = Enum.Material.Neon
+    marker.Color = Color3.fromRGB(170, 0, 255) -- neon purple
+    marker.Anchored = true
+    marker.CanCollide = false
+    marker.Position = waypoint.Position
+    marker.Parent = workspace
+
+    print("Waypoint " .. i .. " at:", waypoint.Position)
+end
+                                    </code>
+                                </pre>
+
+                                <h2>Simple NPC Pathfinding</h2>
+                                <p>
+                                    Now lets combine both NPC moving logic with <code>PathfindingService</code> to make a simple and somewhat optimised smart NPC!
+                                </p>
+                                <pre>
+                                    <code>
+-- Place this Script inside your NPC model
+local npc = script.Parent
+local humanoid = npc:WaitForChild("Humanoid")
+local hrp = npc:WaitForChild("HumanoidRootPart")
+
+local PathfindingService = game:GetService("PathfindingService")
+local RunService = game:GetService("RunService")
+
+-- Replace with your goal object (e.g., a Part named "Goal")
+local goal = workspace:WaitForChild("Goal")
+
+-- Settings
+local recomputeThreshold = 5 -- studs; only recompute if target moved this far
+local lastGoalPos = goal.Position
+
+-- Function to compute and follow path
+local function followPath()
+    local path = PathfindingService:CreatePath({
+        AgentRadius = 2,
+        AgentHeight = humanoid.HipHeight + hrp.Size.Y,
+        AgentCanJump = true,
+        AgentJumpHeight = humanoid.JumpPower / 2,
+        AgentMaxSlope = 45,
+    })
+
+    path:ComputeAsync(hrp.Position, goal.Position)
+
+    if path.Status == Enum.PathStatus.Success then
+        local waypoints = path:GetWaypoints()
+
+        for _, waypoint in ipairs(waypoints) do
+            -- Visualize waypoint
+            local marker = Instance.new("Part")
+            marker.Size = Vector3.new(1, 1, 1)
+            marker.Shape = Enum.PartType.Ball
+            marker.Material = Enum.Material.Neon
+            marker.Color = Color3.fromRGB(170, 0, 255) -- neon purple
+            marker.Anchored = true
+            marker.CanCollide = false
+            marker.Position = waypoint.Position
+            marker.Parent = workspace
+
+            -- Move NPC
+            humanoid:MoveTo(waypoint.Position)
+            humanoid.MoveToFinished:Wait()
+
+            -- Handle jumps
+            if waypoint.Action == Enum.PathWaypointAction.Jump then
+                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            end
+        end
+    else
+        warn("Path failed! NPC cannot reach the goal.")
+    end
+end
+
+-- Loop to update path only when target moves significantly
+RunService.Heartbeat:Connect(function()
+    if goal then
+        local distMoved = (goal.Position - lastGoalPos).Magnitude
+        if distMoved >= recomputeThreshold then
+            lastGoalPos = goal.Position
+            followPath()
+        end
+    end
+end)
+                                    </code>
+                                </pre>
+
+                                <h2>Available API</h2>
+                                <p>
+                                    Because pathfinding can be time consuming to handle, heres a available Module API you can get!</br> <a href="https://create.roblox.com/store/asset/99009254123330/Forbidden-V2-Unpackaged" target="_blank">https://create.roblox.com/store/asset/99009254123330/Forbidden-V2-Unpackaged</a>
+                                </p>
+                                <p>
+                                    You can learn about this API via:</br> <a href="https://github.com/crit-DEV/Forbidden-V2/tree/main/docs" target="_blank">https://github.com/crit-DEV/Forbidden-V2/tree/main/docs</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-navy text-white text-center fw-bold py-2">
+            <span>Dev Blox&trade; Inc. All Rights Reserved</span>
+        </footer>
+
+        <script>
+            // --- Account button in the header (same pattern as other pages) ---
+            (function updateAccountButton() {
+                const loggedInUser = localStorage.getItem("loggedInUser");
+                const accountLabel = document.getElementById("accountLabel");
+                const accountBtn = document.getElementById("accountBtn");
+
+                if (!accountLabel || !accountBtn) return;
+
+                if (loggedInUser) {
+                    accountLabel.textContent = loggedInUser;
+                } else {
+                    accountBtn.href = "Log in and Log out.html";
+                }
+            })();
+
+            // Adjust Height of Sidebar to be (Window height - Top Navbar Height) //
+            function adjustSidebarHeight() {
+            const navbar = document.querySelector('header');
+            const sidebar = document.querySelector('.sidebar');
+            const navHeight = navbar.offsetHeight;
+            sidebar.style.height = `calc(100vh - ${navHeight}px)`;
+            }
+            window.addEventListener('load', adjustSidebarHeight);
+            window.addEventListener('resize', adjustSidebarHeight);
+
+            // Listens for loading content //
+            document.addEventListener("DOMContentLoaded", function() {
+                // Clone the same nav into mobile sidebar
+                const nav = document.querySelector("#sidebar-nav").cloneNode(true);
+                document.querySelector("#sidebar-nav-mobile").appendChild(nav);
+
+                const allButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+                // Restore last active tab from localStorage
+                const lastTab = localStorage.getItem("activeTab");
+                if (lastTab) {
+                    // Find all triggers (desktop + mobile) with the same target
+                    const triggers = document.querySelectorAll('[data-bs-target="' + lastTab + '"]');
+                    triggers.forEach(trigger => {
+                        const tab = new bootstrap.Tab(trigger);
+                        tab.show();
+                    });
+                }
+
+                // Nav Syncing and Last Session Saving
+                allButtons.forEach(btn => {
+                    btn.addEventListener("shown.bs.tab", function(e) {
+                        const target = e.target.getAttribute("data-bs-target");
+
+                        // Remove active state from all buttons
+                        allButtons.forEach(b => b.classList.remove("active"));
+
+                        // Add active to all buttons pointing to the same target
+                        document.querySelectorAll('[data-bs-target="' + target + '"]').forEach(b => b.classList.add("active"));
+
+                        // Save active tab to localStorage
+                        localStorage.setItem("activeTab", target);
+
+                        // Scroll to top
+                        const mainContent = document.querySelector(".tab-content");
+                        if (mainContent) {
+                            mainContent.scrollTop = 0;
+                        }
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                    });
+                });
+
+                //Note Initially I wanted to use fetch() to insert external files into my "Main Contents" when they load. 
+                        //Index works well. However, they are considered unsafe as scripts can be easily injected
+            });
+
+            // Everything from here handles the interactions for the Union Sandboxes
+            let projects = {
+                union: new paper.Project(document.getElementById('unionCanvas')),
+                neg: new paper.Project(document.getElementById('negCanvas')),
+                inter: new paper.Project(document.getElementById('interCanvas'))
+            };
+
+            // Containment variables. Makes sure other "projects" dont affect others (resetting canvas in one wont trigger another | unioning selected shapes in one canvas wont affect other selected shapes in other canvases)
+            let shapes = { union: [], neg: [], inter: [] };
+            let selected = { union: new Set(), neg: new Set(), inter: new Set() };
+
+            // Spawn functions
+            // "type" determines which canvas will have this effects applied
+            function spawnRect(type) {
+                projects[type].activate();
+                let rect = new paper.Path.Rectangle(new paper.Point(80, 80), new paper.Size(100, 60));
+                rect.fillColor = 'blue';
+                rect.isNegative = false;
+                shapes[type].push(rect);
+            }
+            function spawnCircle(type) {
+                projects[type].activate();
+                let circle = new paper.Path.Circle(new paper.Point(150, 150), 40);
+                circle.fillColor = 'red';
+                circle.isNegative = false;
+                shapes[type].push(circle);
+            }
+
+            // Reset
+            function resetCanvas(type) {
+                shapes[type].forEach(s => s.remove());
+                shapes[type] = [];
+                selected[type].clear();
+            }
+
+            // Selection and dragging
+            // Aims to allow dragging object without triggering "onclick" to change selection state
+            for (let key of ['union','neg','inter']) {
+                projects[key].activate();
+                let dragging = null;
+                let clickedShape = null;
+
+                projects[key].view.onMouseDown = function(event) {
+                clickedShape = null;
+                // loop backwards so topmost shape is checked first
+                for (let i = shapes[key].length - 1; i >= 0; i--) {
+                    let shape = shapes[key][i];
+                    if (shape.contains(event.point)) {
+                    clickedShape = shape;
+                    dragging = shape; // prepare for drag
+                    break;
+                    }
+                }
+
+                if (!clickedShape) {
+                    // clicking on empty space clears total selection
+                    selected[key].forEach(s => { s.strokeColor = null; s.strokeWidth = 1; });
+                    selected[key].clear();
+                }
+                };
+
+                projects[key].view.onMouseDrag = function(event) {
+                if (dragging) {
+                    // move shape but do NOT toggle selection
+                    dragging.position = dragging.position.add(event.delta);
+                }
+                };
+
+                projects[key].view.onMouseUp = function(event) {
+                if (clickedShape) {
+                    // If mouse up happened without significant drag, toggle selection
+                    if (event.delta.length < 2) { // small movement = clicking
+                    if (selected[key].has(clickedShape)) {
+                        // deselect
+                        clickedShape.strokeColor = null;
+                        clickedShape.strokeWidth = 1;
+                        selected[key].delete(clickedShape);
+                    } else {
+                        // select
+                        clickedShape.strokeColor = 'yellow';
+                        clickedShape.strokeWidth = 3;
+                        selected[key].add(clickedShape);
+                    }
+                    }
+                }
+                dragging = null;
+                clickedShape = null;
+                };
+            }
+
+            // Toggle negative
+            function toggleNegative(type) {
+                selected[type].forEach(shape => {
+                shape.isNegative = !shape.isNegative;
+                shape.fillColor = shape.isNegative ? 'black' : (shape instanceof paper.Path.Rectangle ? 'blue' : 'red');
+                });
+            }
+
+            // Union operation
+            function unionSelected(type) {
+                if (selected[type].size < 2) return;
+                projects[type].activate();
+                let arr = Array.from(selected[type]);
+
+                // create a clone of the first shape
+                let result = arr[0].clone();
+                result.strokeColor = null;
+                result.strokeWidth = 0;
+                result.fillColor = null;
+
+                // Unite positives
+                for (let i = 1; i < arr.length; i++) {
+                if (!arr[i].isNegative) {
+                    result = result.unite(arr[i]);
+                }
+                }
+
+                // Subtract negatives
+                if (type === 'neg') {
+                arr.forEach(s => {
+                    if (s.isNegative) {
+                    result = result.subtract(s);
+                    }
+                });
+                }
+
+                // Remove originals (both pos and neg)
+                arr.forEach(s => s.remove());
+                shapes[type] = shapes[type].filter(s => !arr.includes(s));
+
+                // Set colour of final result
+                result.fillColor = 'green';
+                result.strokeColor = 'yellow';
+                result.strokeWidth = 3;
+
+                // Track selection
+                shapes[type].push(result);
+                selected[type].clear();
+                selected[type].add(result);
+            }
+
+            // Intersect operation
+            function intersectSelected(type) {
+                if (selected[type].size < 2) return;
+                projects[type].activate();
+                let arr = Array.from(selected[type]);
+
+                // Start with a clean clone
+                let result = arr[0].clone();
+                result.strokeColor = null;
+                result.strokeWidth = 0;
+
+                for (let i = 1; i < arr.length; i++) {
+                let temp = result.intersect(arr[i]);
+                result.remove(); // remove old partial result
+                result = temp;
+
+                if (!result || result.isEmpty()) {
+                    // No common intersection so remove everything
+                    arr.forEach(s => s.remove());
+                    shapes[type] = shapes[type].filter(s => !arr.includes(s));
+                    selected[type].clear();
+                    if (result) result.remove(); // clean up leftover
+                    return;
+                }
+                }
+
+                // Remove originals
+                arr.forEach(s => s.remove());
+                shapes[type] = shapes[type].filter(s => !arr.includes(s));
+
+                // Add final result
+                result.fillColor = 'purple';
+                result.strokeColor = 'yellow';
+                result.strokeWidth = 3;
+                shapes[type].push(result);
+
+                selected[type].clear();
+                selected[type].add(result);
+            }
+
+        </script>
+    </body>
+</html>
