@@ -1,0 +1,197 @@
+<!-- Credits -->
+<!-- Made by Kai Ze -->
+<!-- Linked by Kai Ze and Zheng Bo -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dev Bloxs - Sign up</title>
+ 
+        <!-- Import Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+        <link href="style.css" rel="stylesheet">
+    </head>
+ 
+    <body class="d-flex flex-column min-vh-100 m-0 auth-page">
+      <!-- Top Bar -->
+        <header class="sticky-top">
+            <div class="container-fluid py-2 d-flex justify-content-between align-items-center border-bottom border-primary" style="background-color: white;">
+                <div class="d-flex align-items-center">
+                    <a href="Homepage.html" class="text-decoration-none">
+                     <h2 class="text-primary m-0 me-4">Dev Blox</h2>
+                    </a>
+ 
+                    <!-- PC Nav buttons, only visible in wider displays -->
+                    <div class="d-none d-md-flex gap-3 invisible">
+                        <button class="btn nav-btn">Home</button>
+                        <button class="btn nav-btn">Guides</button>
+                        <button class="btn nav-btn">Community</button>
+                        <button class="btn nav-btn">News</button>
+                        <button class="btn nav-btn">Contact</button>
+                    </div>
+                </div>
+ 
+          </header>
+
+        <main class="flex-grow-1 d-flex align-items-center justify-content-center">
+          <div class="container">
+            <div class="card w-100 rounded-5 mt-3 shadow-sm mx-auto">
+              <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">Create Account</h3>
+ 
+                <div id="signupAlert" class="alert d-none" role="alert"></div>
+ 
+                <form id="signupForm" novalidate>
+                  <div class="mb-3">
+                    <label for="newUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="newUsername" required minlength="3">
+                    <div class="invalid-feedback">Username must be at least 3 characters.</div>
+                  </div>
+ 
+                  <div class="mb-3">
+                    <label for="newEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="newEmail" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                  </div>
+ 
+                  <div class="mb-3">
+                    <label for="newPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="newPassword" required minlength="6">
+                    <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                  </div>
+ 
+                  <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                    <div class="invalid-feedback">Passwords do not match.</div>
+                  </div>
+
+                  <div class="mb-3 form-check">
+                   <input type="checkbox" class="form-check-input" id="showPassword">
+                   <label class="form-check-label" for="showPassword">Show password</label>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                  <a href="Log in and Log out.html" class="btn btn-danger w-100 mt-2">&larr; Back</a>
+                </form>
+ 
+                <p class="text-center small mt-3 mb-0">
+                  Already have an account? <a href="Log in and Log out.html">Log in</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-navy text-white text-center fw-bold py-2">
+          <span>Dev Blox&trade; Inc. All Rights Reserved</span>
+        </footer>
+ 
+       <script>
+        //Users are stored in localStorage as an array of {username, email, password}.
+
+        // Grabs each form element once by its ID and saves it to a variable,
+        // So we can reuse it later instead of calling getElementById again.
+        const signupForm = document.getElementById("signupForm");
+        const signupAlert = document.getElementById("signupAlert");
+        const newUsername = document.getElementById("newUsername");
+        const newEmail = document.getElementById("newEmail");
+        const newPassword = document.getElementById("newPassword");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const showPasswordCheckbox = document.getElementById("showPassword");
+
+        // Reads the list of registered users from localStorage.
+        // Falls back to an empty array if none exist yet.
+        function getUsers() {
+          return JSON.parse(localStorage.getItem("users") || "[]");
+        }
+
+        // Save new user information to localStorage
+        // JSON.stringify converts JavaScript array into string so localStorage can save properly
+        function saveUsers(users) {
+          localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        // Shows the alert box with a message, styled by Bootstrap type (danger/success).
+        function showAlert(message, type) {
+          signupAlert.textContent = message;
+          signupAlert.className = `alert alert-${type}`;
+        }
+
+        // Hides the alert box.
+        function hideAlert() {
+          signupAlert.classList.add("d-none");
+        }
+
+        // Toggles both password fields between hidden and visible text.
+        // Triggered whenever the "show password" checkbox changes.
+        showPasswordCheckbox.addEventListener("change", () => {
+          const type = showPasswordCheckbox.checked ? "text" : "password";
+          newPassword.type = type;
+          confirmPassword.type = type;
+        });
+
+        // Prevent default page reload so we can handle sign-up with JavaScript.
+        // Clear any leftover error message from a previous attempt.
+        signupForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          hideAlert();
+
+          // Check if the 2 passwords match
+          // If passwords not match, show error
+          // Clearing it when they match avoids a false validation error.
+          if (newPassword.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("mismatch");
+          } else {
+            confirmPassword.setCustomValidity("");
+          }
+
+          // Runs built-in form validation (e.g. required fields).
+          // If invalid, show validation styling and stop here.
+          if (!signupForm.checkValidity()) {
+            signupForm.classList.add("was-validated");
+            return;
+          }
+          signupForm.classList.add("was-validated");
+
+          // Grab the typed-in values
+          // Removes any whitespace from front and end of the username and email.
+          // Password does not trim as spaces could be intentional.
+          // Load existing users from localStorage so we can check for duplicates and append.
+          const username = newUsername.value.trim();
+          const email = newEmail.value.trim();
+          const password = newPassword.value;
+          const users = getUsers();
+
+          // Block sign-up if the username is already taken (case-insensitive).
+          // Shows error and stops before anything is saved.
+          if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
+            showAlert(`Username "${username}" is already taken.`, "danger");
+            return;
+          }
+
+          // Add new user to the array and store it to localStorage.
+          users.push({ username, email, password });
+          saveUsers(users);
+
+          // Show a success message confirming that new account was created.
+          // User is redirected to the login page after a short pause.
+          showAlert(`Account created for "${username}"! Redirecting to login page...`, "success");
+          setTimeout(() => {
+            window.location.href = "Log in and Log out.html";
+          }, 1500);
+        });
+
+        // Clears the mismatch error as soon as the user edits confirm-password.
+        // So it doesn't stay stuck after they've fixed it.
+        confirmPassword.addEventListener("input", () => {
+          confirmPassword.setCustomValidity("");
+        });
+       </script>
+    </body>
+</html>
